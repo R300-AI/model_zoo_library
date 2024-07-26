@@ -1,10 +1,10 @@
 # model_zoo_library
 
-### Branches & Resources
-|  Branch   | Supported Models  | Source code |
-|  ------------------  | ----  | ----  |
-| Mobilenet-SSD-Essay  | `Mobilenet-SSD` | [link](https://github.com/bubbliiiing/Mobilenet-SSD-Essay) |
-| ultralytics-8.2.66  | `YOLOv3~YOLOv10`, `YOLO-NAS`, `YOLO-World`, `RT-DETR`, `SAM`, `MobileSAM` | [link](https://github.com/ultralytics/ultralytics) |
+### list
+|  Branches & Resources   | Supported Models  |
+|  ------------------  | ------------------  |
+| [Mobilenet-SSD-Essay](https://github.com/bubbliiiing/Mobilenet-SSD-Essay)  | `Mobilenet-SSD` |
+| [ultralytics-8.2.66](https://github.com/ultralytics/ultralytics)   | `YOLOv3~YOLOv10`, `YOLO-NAS`, `YOLO-World`, `RT-DETR`, `SAM`, `MobileSAM` |
 
 * [Mobilenet-SSD-Essay]()
 

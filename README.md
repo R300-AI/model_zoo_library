@@ -1,6 +1,6 @@
 # model_zoo_library
 
-### Branches
+### Branches & Resources
 * [Mobilenet-SSD-Essay](https://github.com/bubbliiiing/Mobilenet-SSD-Essay)
 
 

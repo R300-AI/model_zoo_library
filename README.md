@@ -40,8 +40,9 @@
 ### Segmentation
 |       Models          |      Framework      |        Branch         |       Papers        |      Sources        |
 |  -------------------  | ------------------  | --------------------  | ------------------  | ------------------  |
-|  FCN                  |   PyTorch           | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1411.4038)  | [[Github]](https://github.com/pytorch/vision)  |
+|  FCN                  |   PyTorch           | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1411.4038)   | [[Github]](https://github.com/pytorch/vision)  |
 |  DeepLab_v3           |   PyTorch           | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1706.05587)  | [[Github]](https://github.com/pytorch/vision)  |
+|  LRASPP               |   PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1905.02244)   | [[Github]](https://github.com/pytorch/vision)  |
 |  SAMs                 |   PyTorch           | ultralytics-8.2.66    | [[Arxiv]](https://arxiv.org/html/2406.10139v1#S4)  | [[Github]](https://github.com/ultralytics/ultralytics) |
 
 

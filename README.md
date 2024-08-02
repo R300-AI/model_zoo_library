@@ -4,7 +4,7 @@
 
 |       Models          |      Framework      |       Branch        |       Papers        |      Sources        |
 |  -------------------  | ------------------  | ------------------  | ------------------  | ------------------  |
-|  MobilenetSSD         |    tensorFlow 1     | [Mobilenet-SSD-Essay](https://github.com/bubbliiiing/Mobilenet-SSD-Essay)  | ------------------  | [Github](https://github.com/bubbliiiing/Mobilenet-SSD-Essay/tree/master)  |
+|  MobilenetSSD         |    tensorFlow 1     | [Mobilenet-SSD-Essay](https://github.com/bubbliiiing/Mobilenet-SSD-Essay)  | [[Arxiv]](https://arxiv.org/abs/1512.02325)  | [[Github]](https://github.com/bubbliiiing/Mobilenet-SSD-Essay/tree/master)  |
 |  YOLOv8n              |    PyTorch          | [ultralytics-8.2.66](https://github.com/ultralytics/ultralytics)           | ------------------  | ------------------  |
 |  EfficientNet-b0      |    PyTorch          | [ultralytics-8.2.66](https://github.com/ultralytics/ultralytics)           | ------------------  | ------------------  |
 

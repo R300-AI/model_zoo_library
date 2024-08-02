@@ -28,7 +28,7 @@
 ### Object Detection
 |       Models          |      Framework      |        Branch         |       Papers        |      Sources        |
 |  -------------------  | ------------------  | --------------------  | ------------------  | ------------------  |
-|  MobilenetSSD         |    tensorFlow 1     | Mobilenet-SSD-Essay   | [[Arxiv]](https://arxiv.org/abs/1512.02325)  | [[Github]](https://github.com/bubbliiiing/Mobilenet-SSD-Essay/tree/master)  |
+|  MobileNetSSD         |    tensorFlow 1     | Mobilenet-SSD-Essay   | [[Arxiv]](https://arxiv.org/abs/1512.02325)  | [[Github]](https://github.com/bubbliiiing/Mobilenet-SSD-Essay/tree/master)  |
 |  YOLO_v3~YOLO_v10     |    PyTorch          | ultralytics-8.2.66    | [[Arxiv]](https://arxiv.org/html/2406.10139v1#S4)  | [[Github]](https://github.com/ultralytics/ultralytics) |
 
 

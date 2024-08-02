@@ -20,4 +20,4 @@
 
 ## Acknowledgement
     
-This repository was built on top of [[Mobilenet-SSD-Essay]](https://github.com/bubbliiiing/Mobilenet-SSD-Essay). We thank the effort from communities.
+This repository was built on top of several open-sources libraries. We thank the effort from communities.

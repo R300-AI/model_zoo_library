@@ -29,6 +29,7 @@
 |       Models          |      Framework      |        Branch         |       Papers        |      Sources        |
 |  -------------------  | ------------------  | --------------------  | ------------------  | ------------------  |
 |  FasterRCNNs          |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1506.01497)  | [[Github]](https://github.com/pytorch/vision)  |
+|  MobileNetSSD         |    PyTorch          | MobileNet-SSD-Essay   | [[Arxiv]](https://arxiv.org/abs/1512.02325)  | [[Github]](https://github.com/bubbliiiing/Mobilenet-SSD-Essay/tree/master)  |
 |  KeypointRCNN         |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1603.00502)  | [[Github]](https://github.com/pytorch/vision)  |
 |  MaskedRCNNs          |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1703.06870)  | [[Github]](https://github.com/pytorch/vision)  |
 |  RetinaNet            |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1708.02002)  | [[Github]](https://github.com/pytorch/vision)  |

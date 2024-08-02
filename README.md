@@ -4,31 +4,26 @@
     
 
 ### Image Classification
-
-DenseNets
-RegNets
-EfficientNets
-Inception_v3
-MaxVit
-MnasNets
-SqueezeNet
-
-ShuffleNets_v2
-
 |       Models         |      Framework      |        Branch         |       Papers        |      Source Code    |
 |  ------------------- | ------------------  | --------------------  | ------------------  | ------------------  |
 |  AlexNet             |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html)  | [[Github]](https://github.com/pytorch/vision)  |
 |  VGGs                |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1409.1556)   | [[Github]](https://github.com/pytorch/vision)  |
 |  GoogleNet           |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1409.4842)   | [[Github]](https://github.com/pytorch/vision)  |
+|  Inception_v3        |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1512.00567)  | [[Github]](https://github.com/pytorch/vision)  |
 |  ResNets             |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1512.03385)  | [[Github]](https://github.com/pytorch/vision)  |
+|  SqueezeNet          |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1602.07360)  | [[Github]](https://github.com/pytorch/vision)  |
+|  DenseNets           |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1608.06993)  | [[Github]](https://github.com/pytorch/vision)  |
 |  ConvNeXts           |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1611.05431)  | [[Github]](https://github.com/pytorch/vision)  |
 |  MobileNet           |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1704.04861)  | [[Github]](https://github.com/pytorch/vision)  |
 |  MobileNet_v2        |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1801.04381)  | [[Github]](https://github.com/pytorch/vision)  |
+|  MnasNets            |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1807.11626)  | [[Github]](https://github.com/pytorch/vision)  |
+|  ShuffleNets_v2      |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1807.11164)  | [[Github]](https://github.com/pytorch/vision)  |
 |  MobileNet_v3        |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1905.02244)  | [[Github]](https://github.com/pytorch/vision)  |
 |  EfficientNets       |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1905.11946)  | [[Github]](https://github.com/pytorch/vision)  |
+|  RegNets             |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/2003.13678)  | [[Github]](https://github.com/pytorch/vision)  |
 |  ViTs                |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/2010.11929)  | [[Github]](https://github.com/pytorch/vision)  |
 |  Swin Transformers   |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/2103.14030)  | [[Github]](https://github.com/pytorch/vision)  |
-
+|  MaxVit              |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/2204.01697)  | [[Github]](https://github.com/pytorch/vision)  |
 
 ### Object Detection
 |       Models          |      Framework      |        Branch         |       Papers        |      Sources        |

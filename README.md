@@ -1,21 +1,12 @@
 # model_zoo_library
 
 ## Computer Vision
-    "resnet18",
-    "resnet34",
-    "resnet50",
-    "resnet101",
-    "resnet152",
-    "resnext50_32x4d",
-    "resnext101_32x8d",
-    "resnext101_64x4d",
-    "wide_resnet50_2",
-    "wide_resnet101_2",
+    
 
 ### Image Classification
 |       Models          |      Framework      |        Branch         |       Papers        |      Sources        |
 |  -------------------  | ------------------  | --------------------  | ------------------  | ------------------  |
-|  EfficientNet-b0 <br>EfficientNet-b1 <br>EfficientNet-b2 <br>EfficientNet-b3 <br>EfficientNet-b4 <br>EfficientNet-b5 <br>EfficientNet-b6 <br>EfficientNet-b7|    PyTorch          | - | | Torchvision  |
+|  ResNet18 <br>ResNet34 <br>ResNet50 <br>ResNet101 <br>ResNet152 <br>ResNeXt50_32x4d <br>ResNeXt101_32x8d <br>ResNeXt101_64x4d  |    PyTorch          | - | | Torchvision  |
 |  EfficientNet-b0 <br>EfficientNet-b1 <br>EfficientNet-b2 <br>EfficientNet-b3 <br>EfficientNet-b4 <br>EfficientNet-b5 <br>EfficientNet-b6 <br>EfficientNet-b7|    PyTorch          | EfficientNet-PyTorch  | [[Arxiv]](https://arxiv.org/abs/1905.11946)  | [[Github]](https://github.com/lukemelas/EfficientNet-PyTorch)  |
 
 

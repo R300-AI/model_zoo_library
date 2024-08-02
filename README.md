@@ -27,7 +27,6 @@ ShuffleNets_v2
 |  -------------------  | ------------------  | --------------------  | ------------------  | ------------------  |
 |  ResNets              |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1512.03385)  | [[Github]](https://github.com/pytorch/vision)  |
 |  ConvNeXts            |    PyTorch          | vision-0.19.0         |[[Arxiv]](https://arxiv.org/abs/1611.05431)   | [[Github]](https://github.com/pytorch/vision)  |
-
 |  MobileNet           |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1704.04861)  | [[Github]](https://github.com/pytorch/vision)  |
 |  MobileNet_v2        |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1801.04381)  | [[Github]](https://github.com/pytorch/vision)  |
 |  MobileNet_v3        |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1905.02244)  | [[Github]](https://github.com/pytorch/vision)  |

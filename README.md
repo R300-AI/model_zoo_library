@@ -3,7 +3,7 @@
 ## Computer Vision
     
 
-### Image Classification
+### Classification
 |       Models         |      Framework      |        Branch         |       Papers        |      Source Code    |
 |  ------------------- | ------------------  | --------------------  | ------------------  | ------------------  |
 |  AlexNet             |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html)  | [[Github]](https://github.com/pytorch/vision)  |
@@ -25,14 +25,17 @@
 |  Swin Transformers   |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/2103.14030)  | [[Github]](https://github.com/pytorch/vision)  |
 |  MaxVit              |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/2204.01697)  | [[Github]](https://github.com/pytorch/vision)  |
 
-### Object Detection
+### Detection
 |       Models          |      Framework      |        Branch         |       Papers        |      Sources        |
 |  -------------------  | ------------------  | --------------------  | ------------------  | ------------------  |
-|  MobileNetSSD         |    tensorFlow 1     | Mobilenet-SSD-Essay   | [[Arxiv]](https://arxiv.org/abs/1512.02325)  | [[Github]](https://github.com/bubbliiiing/Mobilenet-SSD-Essay/tree/master)  |
+|  FasterRCNNs          |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1506.01497)  | [[Github]](https://github.com/pytorch/vision)  |
+|  KeypointRCNN         |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1603.00502)  | [[Github]](https://github.com/pytorch/vision)  |
+|  MaskedRCNNs          |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1703.06870)  | [[Github]](https://github.com/pytorch/vision)  |
+|  FCOS                 |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1904.01355)  | [[Github]](https://github.com/pytorch/vision)  |
 |  RT-DETRs             |    PyTorch          | ultralytics-8.2.66    | [[Arxiv]](https://arxiv.org/abs/2304.08069)  | [[Github]](https://github.com/ultralytics/ultralytics) |
 |  YOLOs                |    PyTorch          | ultralytics-8.2.66    | [[Arxiv]](https://arxiv.org/abs/2406.10139)  | [[Github]](https://github.com/ultralytics/ultralytics) |
 
-### Semantic Segmentation
+### Segmentation
 |       Models          |      Framework      |        Branch         |       Papers        |      Sources        |
 |  -------------------  | ------------------  | --------------------  | ------------------  | ------------------  |
 |  SAMs                 |  PyTorch            | ultralytics-8.2.66    | [[Arxiv]](https://arxiv.org/html/2406.10139v1#S4)  | [[Github]](https://github.com/ultralytics/ultralytics) |

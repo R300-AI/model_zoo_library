@@ -34,7 +34,7 @@
 ### Semantic Segmentation
 |       Models          |      Framework      |        Branch         |       Papers        |      Sources        |
 |  -------------------  | ------------------  | --------------------  | ------------------  | ------------------  |
-|  SAM <br>MobileSAM <br>FastSAM |  PyTorch   | ultralytics-8.2.66    | [[Arxiv]](https://arxiv.org/html/2406.10139v1#S4)  | [[Github]](https://github.com/ultralytics/ultralytics) |
+|  SAMs                 |  PyTorch            | ultralytics-8.2.66    | [[Arxiv]](https://arxiv.org/html/2406.10139v1#S4)  | [[Github]](https://github.com/ultralytics/ultralytics) |
 
 
 ## Acknowledgement

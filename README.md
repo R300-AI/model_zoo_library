@@ -5,9 +5,6 @@
 
 ### Image Classification
 
-AlexNet
-VGGs
-GoogleNet
 DenseNets
 RegNets
 EfficientNets
@@ -18,15 +15,13 @@ SqueezeNet
 
 ShuffleNets_v2
 
-
-
-
-
-
-|       Models          |      Framework      |        Branch         |       Papers        |      Source Code    |
-|  -------------------  | ------------------  | --------------------  | ------------------  | ------------------  |
-|  ResNets              |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1512.03385)  | [[Github]](https://github.com/pytorch/vision)  |
-|  ConvNeXts            |    PyTorch          | vision-0.19.0         |[[Arxiv]](https://arxiv.org/abs/1611.05431)   | [[Github]](https://github.com/pytorch/vision)  |
+|       Models         |      Framework      |        Branch         |       Papers        |      Source Code    |
+|  ------------------- | ------------------  | --------------------  | ------------------  | ------------------  |
+|  AlexNet             |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://papers.nips.cc/paper_files/paper/2012/hash/c399862d3b9d6b76c8436e924a68c45b-Abstract.html)  | [[Github]](https://github.com/pytorch/vision)  |
+|  VGGs                |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1409.1556)   | [[Github]](https://github.com/pytorch/vision)  |
+|  GoogleNet           |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1409.4842)   | [[Github]](https://github.com/pytorch/vision)  |
+|  ResNets             |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1512.03385)  | [[Github]](https://github.com/pytorch/vision)  |
+|  ConvNeXts           |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1611.05431)  | [[Github]](https://github.com/pytorch/vision)  |
 |  MobileNet           |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1704.04861)  | [[Github]](https://github.com/pytorch/vision)  |
 |  MobileNet_v2        |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1801.04381)  | [[Github]](https://github.com/pytorch/vision)  |
 |  MobileNet_v3        |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1905.02244)  | [[Github]](https://github.com/pytorch/vision)  |

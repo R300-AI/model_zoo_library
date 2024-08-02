@@ -5,14 +5,8 @@
 ### Image Classification
 |       Models          |      Framework      |        Branch         |       Papers        |      Sources        |
 |  -------------------  | ------------------  | --------------------  | ------------------  | ------------------  |
-|  EfficientNet-b0      |    PyTorch          | EfficientNet-PyTorch  | [[Arxiv]](https://arxiv.org/abs/1905.11946)  | [[Github]](https://github.com/lukemelas/EfficientNet-PyTorch)  |
-|  EfficientNet-b1      |    PyTorch          | EfficientNet-PyTorch  | [[Arxiv]](https://arxiv.org/abs/1905.11946)  | [[Github]](https://github.com/lukemelas/EfficientNet-PyTorch)  |
-|  EfficientNet-b2      |    PyTorch          | EfficientNet-PyTorch  | [[Arxiv]](https://arxiv.org/abs/1905.11946)  | [[Github]](https://github.com/lukemelas/EfficientNet-PyTorch)  |
-|  EfficientNet-b3      |    PyTorch          | EfficientNet-PyTorch  | [[Arxiv]](https://arxiv.org/abs/1905.11946)  | [[Github]](https://github.com/lukemelas/EfficientNet-PyTorch)  |
-|  EfficientNet-b4      |    PyTorch          | EfficientNet-PyTorch  | [[Arxiv]](https://arxiv.org/abs/1905.11946)  | [[Github]](https://github.com/lukemelas/EfficientNet-PyTorch)  |
-|  EfficientNet-b5      |    PyTorch          | EfficientNet-PyTorch  | [[Arxiv]](https://arxiv.org/abs/1905.11946)  | [[Github]](https://github.com/lukemelas/EfficientNet-PyTorch)  |
-|  EfficientNet-b6      |    PyTorch          | EfficientNet-PyTorch  | [[Arxiv]](https://arxiv.org/abs/1905.11946)  | [[Github]](https://github.com/lukemelas/EfficientNet-PyTorch)  |
-|  EfficientNet-b7      |    PyTorch          | EfficientNet-PyTorch  | [[Arxiv]](https://arxiv.org/abs/1905.11946)  | [[Github]](https://github.com/lukemelas/EfficientNet-PyTorch)  |
+|  EfficientNet-b0 <br>EfficientNet-b1 <br>EfficientNet-b2 <br>EfficientNet-b3 <br>EfficientNet-b4 <br>EfficientNet-b5 <br>EfficientNet-b6 <br>EfficientNet-b7|    PyTorch          | EfficientNet-PyTorch  | [[Arxiv]](https://arxiv.org/abs/1905.11946)  | [[Github]](https://github.com/lukemelas/EfficientNet-PyTorch)  |
+
 
 ### Object Detection
 |       Models          |      Framework      |        Branch         |       Papers        |      Sources        |

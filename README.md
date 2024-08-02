@@ -33,8 +33,9 @@ Swin-Transformers
 
 |       Models          |      Framework      |        Branch         |       Papers        |      Source Code    |
 |  -------------------  | ------------------  | --------------------  | ------------------  | ------------------  |
-|  ResNets, ConvNeXts   |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1512.03385) [[Arxiv]](https://arxiv.org/abs/1611.05431) | [[Github]](https://github.com/pytorch/vision)  |
-|  EfficientNets        |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1905.11946)  | [[Github]](https://github.com/pytorch/vision)   |
+|  ResNets              |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1512.03385)  | [[Github]](https://github.com/pytorch/vision)  |
+|  ConvNeXts            |    PyTorch          | vision-0.19.0         |[[Arxiv]](https://arxiv.org/abs/1611.05431)   | [[Github]](https://github.com/pytorch/vision)  |
+|  EfficientNets        |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1905.11946)  | [[Github]](https://github.com/pytorch/vision)  |
 
 
 

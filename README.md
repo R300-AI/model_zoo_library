@@ -31,6 +31,7 @@
 |  FasterRCNNs          |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1506.01497)  | [[Github]](https://github.com/pytorch/vision)  |
 |  KeypointRCNN         |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1603.00502)  | [[Github]](https://github.com/pytorch/vision)  |
 |  MaskedRCNNs          |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1703.06870)  | [[Github]](https://github.com/pytorch/vision)  |
+|  RetinaNet            |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1708.02002)  | [[Github]](https://github.com/pytorch/vision)  |
 |  FCOS                 |    PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1904.01355)  | [[Github]](https://github.com/pytorch/vision)  |
 |  RT-DETRs             |    PyTorch          | ultralytics-8.2.66    | [[Arxiv]](https://arxiv.org/abs/2304.08069)  | [[Github]](https://github.com/ultralytics/ultralytics) |
 |  YOLOs                |    PyTorch          | ultralytics-8.2.66    | [[Arxiv]](https://arxiv.org/abs/2406.10139)  | [[Github]](https://github.com/ultralytics/ultralytics) |

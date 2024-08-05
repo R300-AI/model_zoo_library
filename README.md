@@ -40,6 +40,7 @@
 ### Segmentation
 |       Models          |      Framework      |        Branch         |       Papers        |      Sources        |
 |  -------------------  | ------------------  | --------------------  | ------------------  | ------------------  |
+|  UNet                  |   -           | -         | -  |   |
 |  FCN                  |   PyTorch           | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1411.4038)   | [[Github]](https://github.com/pytorch/vision)  |
 |  DeepLab_v3           |   PyTorch           | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1706.05587)  | [[Github]](https://github.com/pytorch/vision)  |
 |  LRASPP               |   PyTorch          | vision-0.19.0         | [[Arxiv]](https://arxiv.org/abs/1905.02244)   | [[Github]](https://github.com/pytorch/vision)  |

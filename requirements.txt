@@ -1,3 +1,4 @@
 torch
 torchvision
+tensorflow
 ai_edge_torch

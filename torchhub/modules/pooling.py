@@ -1,3 +1,4 @@
+import torch
 import torch.nn as nn
 
 class AdaptiveAvgPool2d(nn.Module):
@@ -11,7 +12,6 @@ class AdaptiveAvgPool2d(nn.Module):
 
         stride_h = in_h // out_h
         stride_w = in_w // out_w
-
         kernel_h = in_h - (out_h - 1) * stride_h
         kernel_w = in_w - (out_w - 1) * stride_w
 

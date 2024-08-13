@@ -9,5 +9,3 @@ pip install -r requirements.txt
 
 
 ## Acknowledgement
-    
-This repository was built on top of several open-sources libraries. We thank the effort from communities.

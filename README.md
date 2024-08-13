@@ -1,8 +1,9 @@
 # model_zoo_library
-sudo apt-get install libhdf5-dev
+```udo apt-get install libhdf5-dev
 pip install -U pip testresources setuptools
 pip install h5py --only-binary h5py
 pip install -r requirements.txt
+```
 
 ## Computer Vision
 ERROR: Could not build wheels for h5py, which is required to install pyproject.toml-based projects

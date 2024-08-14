@@ -1,5 +1,5 @@
 from torch.profiler import profile, record_function, ProfilerActivity
-import onnx_tool, argparse
+import torch, onnx_tool, platform, argparse
 
 
 
@@ -27,8 +27,8 @@ parser.add_argument("-i", "--input_size", default=None, type=list, help="The sha
 args = parser.parse_args()
 
 if __name__ == '__main__':
-  import platform
   print(platform.system(), platform.processor(), platform.platform(), platform.machine(), platform.version(), platform.uname())
+    
   if args.model_path.endwith('.pt'):
     TorchScript_Profiler(args.model_path, args.input_size)
   elif args.model_path.endwith('.onnx'):

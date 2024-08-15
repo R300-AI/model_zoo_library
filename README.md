@@ -1,7 +1,7 @@
 # model_zoo_library
 ## Model Zoo
 ### MediaTek Genio
-* **Environment Status**
+* **Supported Operation System and Drivers**
   
   |         OS       | ArmNN<br><sup>(Cortex-CPU, Mali-GPU)  | NeuronPilot<br><sup>(MDLA, VP)  |          PCIe Plugins          |
   |         ----     |         --------------------          |       -------------------       |      -------------------       |

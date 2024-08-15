@@ -7,6 +7,7 @@
   |         ----     |         --------------------          |       -------------------       |      -------------------       |
   |      Yocto       |        :white_check_mark:             |       :white_check_mark:        |                                |
   |      Ubuntu      |       :black_square_button:           |       :white_check_mark:        |  `Hailo-8`                     |
+  * Compatibility between the engine and the operating system.
 
 **Step1.** Connect to internet and clone this repository to your device.
   ```
@@ -18,7 +19,7 @@
 
 **Step2.** Select and download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
 
-**Step3.** Run this command to get benchmark reports.
+**Step3.** Run this command to get benchmark reports. (engine)
   ```
   python3 profile.py --model <path-to-your-model>.onnx --engine cpu --input_size '1, 3, 244, 244'
   ```

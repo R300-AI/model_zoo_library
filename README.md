@@ -20,7 +20,7 @@
 
 **Step3.** Run this command to get benchmark reports.
   ```
-  python3 profile.py --model <path-to-your-model> --engine cpu --input_size '1, 3, 244, 244'
+  python3 profile.py --model <path-to-your-model>.onnx --engine cpu --input_size '1, 3, 244, 244'
   ```
 
 

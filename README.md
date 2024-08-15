@@ -30,5 +30,7 @@
 * [Python](https://github.com/R300-AI/model_zoo_library/blob/main/template/armnn.py)
 
 
+## Configuration
+
 ## Acknowledgement
 ### Add more tools

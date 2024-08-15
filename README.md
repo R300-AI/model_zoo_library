@@ -28,7 +28,7 @@
 ## Demo Template
 ### ArmNN
 #### Python
-  ```
+  ```python
   import numpy as np
   import tflite_runtime.interpreter as tflite
   

@@ -8,7 +8,7 @@
   |      Yocto       |        :white_check_mark:             |       :white_check_mark:        |                                |
   |      Ubuntu      |       :black_square_button:           |       :white_check_mark:        |  `Hailo-8`                     |
 
-**Step1.** Clone this repository to your device.
+**Step1.** Connect to internet and clone this repository to your device.
   ```
   git clone https://github.com/R300-AI/model_zoo_library.git
   cd model_zoo_library

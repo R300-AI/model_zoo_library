@@ -31,7 +31,7 @@
 
 
 ## Bacnbone
-  |       OS         |        :white_check_mark:             | 
+  |    Framework     |        :white_check_mark:             | 
   |         ----     |         --------------------          |  
   | PyTorch/Vision   |        :white_check_mark:             | 
   

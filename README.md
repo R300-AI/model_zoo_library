@@ -31,9 +31,9 @@
 
 
 ## Bacnbone
-  |    Framework     |        :white_check_mark:             | 
+  |    Framework     |                Models                 | 
   |         ----     |         --------------------          |  
-  | PyTorch/Vision   |        :white_check_mark:             | 
+  | PyTorch/Vision   |  `ResNets`                            | 
   
 ## Acknowledgement
 ### Add more tools

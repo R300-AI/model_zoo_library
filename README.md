@@ -31,7 +31,7 @@
 
 
 ## Bacnbone
-  |    Framework     |                Models                 | 
+  |    Framework     |                Model Sets             | 
   |         ----     |         --------------------          |  
   | PyTorch/Vision   |  `ResNets`                            | 
   

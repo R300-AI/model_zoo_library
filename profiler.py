@@ -1,6 +1,6 @@
 import argparse, torch
 import numpy as np
-from libs.profiler import TorchScript_Profiler, ONNX_Profiler
+from libs.profiler import CPU_Benchmarks
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-m", "--model", default=None, type=str, required=True, help="The path to the candidate model. (e.g. ./../*.onnx, ./../*.tflite)")
@@ -9,8 +9,8 @@ parser.add_argument("-i", "--input_size", default=None, type=str, required=True 
 args = parser.parse_args()
 
 if __name__ == '__main__':
-  inputs = np.random.rand(*args.input_size.astype(int))
+  inputs = np.random.rand(*np.array(args.input_size.split(',')).astype(int))
   
-  if args.engine == 'cpu':
-    Profile_CPU(inputs, args.model)
+  if args.engine == 'CPU':
+    CPU_Benchmarks(inputs, args.model)
 

@@ -3,10 +3,10 @@
 ### MediaTek Genio
 
 * Test Latency
-  |    Config Name   | ArmNN<br><sup>(Cortex CPU+ Mali GPU)|      TFLite      |
-  |         ----     |         -----          |       ----       |
-  |  YOLOv3          |  :white_check_mark: |  :white_check_mark: |
-  |  YOLOv5          |  :white_check_mark: |  :white_check_mark: |
+  |         OS       | ArmNN<br><sup>(Cortex-CPU + Mali-GPU) | NeuronPilot<br><sup>(MDLA, VP)  |
+  |         ----     |         --------------------          |       -------------------       |
+  |      Yocto       |  :white_check_mark: |  :white_check_mark: |
+  |      Ubuntu      |  :white_check_mark: |  :white_check_mark: |
 
 
 

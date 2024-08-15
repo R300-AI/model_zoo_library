@@ -30,7 +30,10 @@
 * [Python](https://github.com/R300-AI/model_zoo_library/blob/main/template/armnn.py)
 
 
-## Configuration
-
+## Bacnbone
+  |       OS         |        :white_check_mark:             | 
+  |         ----     |         --------------------          |  
+  | PyTorch/Vision   |        :white_check_mark:             | 
+  
 ## Acknowledgement
 ### Add more tools

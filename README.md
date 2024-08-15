@@ -7,7 +7,7 @@
   |         ----     |         --------------------          |       -------------------       |      -------------------       |
   |      Yocto       |        :white_check_mark:             |       :white_check_mark:        |                                |
   |      Ubuntu      |       :black_square_button:           |       :white_check_mark:        |  `Hailo-8`                     |
-  * Compatibility between the engine and the operating system.
+  *Compatibility between the engine and the operating system.*
 
 **Step1.** Connect to internet and clone this repository to your device.
   ```

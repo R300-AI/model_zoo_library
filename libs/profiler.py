@@ -1,11 +1,13 @@
-class CPU_Benchmarks(model_path):
+class CPU_Benchmarks():
   def __init__(self, inputs, model_path):
-    if imodel_path.endswith('.onnx'):
-      ONNX_Profiler(inputs, model_path)
-    elif imodel_path.endswith('.py'):
-      raise Warning("ONNX Format are recommanded to CPU benchmarks.")
-      TorchScript_Pofiler(inputs, model_path)
+  
+    if model_path.endswith('.onnx'):
+      self.ONNX_Profiler(inputs, model_path)
     else:
+      if model_path.endswith('.pt'):
+        self.TorchScript_Pofiler(inputs, model_path)
+      else:
+        pass
       raise Warning("ONNX Format are recommanded to CPU benchmarks.")
 
   def TFLite_Profiler(self, inputs, model_path):
@@ -20,6 +22,7 @@ class CPU_Benchmarks(model_path):
     print(m.graph.print_node_map())
 
   def TorchScript_Pofiler(self, inputs, model_path):
+      import torch
       from torch.profiler import profile, record_function, ProfilerActivity
       model = torch.jit.load(model_path)
       model.eval()

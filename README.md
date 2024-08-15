@@ -12,13 +12,14 @@
   ```
   git clone https://github.com/R300-AI/model_zoo_library.git
   cd model_zoo_library
+
+  pip install -r requirements.txt
   ```
 
 **Step2.** Select and download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
 
 **Step3.** Run this command to get benchmark reports.
   ```
-  pip install -r requirements.txt
   python3 profile.py --model <path-to-your-model> --engine cpu --input_size '1, 3, 244, 244'
   ```
 

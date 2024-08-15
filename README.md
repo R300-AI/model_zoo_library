@@ -26,6 +26,8 @@
   ```
 
 ## Demo Template
+### ArmNN
+#### Python
 
 ## Acknowledgement
 ### Add more tools

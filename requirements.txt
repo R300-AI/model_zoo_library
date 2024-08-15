@@ -5,4 +5,5 @@ torchaudio==2.4.0
 onnx
 onnxruntime
 onnx_tool
+
 tflite-runtime

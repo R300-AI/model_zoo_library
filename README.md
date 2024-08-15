@@ -14,7 +14,7 @@
   cd model_zoo_library
   ```
 **Step2.** Select and Download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
-**Step3.** Run this command to get benchmarks.
+**Step3.** Run this command to get benchmark reports.
   ```
   pip install -r requirements.txt
   python3 profile.py --model <path-to-your-model> --engine cpu --input_size '1, 3, 244, 244'

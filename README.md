@@ -14,7 +14,7 @@
   cd model_zoo_library
   ```
 
-**Step2.** Select and Download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
+**Step2.** Select and download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
 
 **Step3.** Run this command to get benchmark reports.
   ```

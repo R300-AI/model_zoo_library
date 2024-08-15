@@ -1,4 +1,4 @@
-import argparse, torch
+import argparse
 import numpy as np
 from libs.profiler import CPU_Benchmarks
 

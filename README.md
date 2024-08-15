@@ -33,7 +33,7 @@
 ## Bacnbone
   |    Framework     |                Model Sets             | 
   |         ----     |         --------------------          |  
-  | PyTorch/Vision   |  `ResNets`                            | 
+  | PyTorch/Vision   |  `ResNets`, `SSDs`                    | 
   
 ## Acknowledgement
 ### Add more tools

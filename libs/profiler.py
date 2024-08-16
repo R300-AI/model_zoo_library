@@ -12,6 +12,7 @@ class CPU_Benchmarks():
   def TFLite_Profiler(self, inputs, model_path):
     import numpy as np
     import tflite_runtime.interpreter as tflite
+    import time
     
     BACKENDS = "CpuAcc"  #"GpuAcc,CpuAcc,CpuRef"
     DELEGATE_PATH = "/armnn/libarmnnDelegate.so.29"
@@ -23,10 +24,12 @@ class CPU_Benchmarks():
     input_details, output_details = interpreter.get_input_details(), interpreter.get_output_details()
     
     inputs = np.zeros(input_details[0]['shape'], dtype=np.float32)
-    
-    interpreter.set_tensor(input_details[0]["index"], inputs)
-    interpreter.invoke()
-    interpreter.get_tensor(output_details[0]["index"])
+    start_point = time.time()
+    for _ in range(100):
+      interpreter.set_tensor(input_details[0]["index"], inputs)
+      interpreter.invoke()
+      interpreter.get_tensor(output_details[0]["index"])
+    print((time.time()-start_point) * 10, 'ms')
 
   def ONNX_Profiler(self, inputs, model_path):
     import onnx_tool

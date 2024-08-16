@@ -25,11 +25,11 @@ class CPU_Benchmarks():
     
     inputs = np.zeros(input_details[0]['shape'], dtype=np.float32)
     start_point = time.time()
-    for _ in range(100):
+    for _ in range(10):
       interpreter.set_tensor(input_details[0]["index"], inputs)
       interpreter.invoke()
       interpreter.get_tensor(output_details[0]["index"])
-    print((time.time()-start_point) * 10, 'ms')
+    print((time.time()-start_point) * 100, 'ms')
 
   def ONNX_Profiler(self, inputs, model_path):
     import onnx_tool
@@ -75,6 +75,9 @@ class GPU_Benchmarks():
     
     inputs = np.zeros(input_details[0]['shape'], dtype=np.float32)
     
-    interpreter.set_tensor(input_details[0]["index"], inputs)
-    interpreter.invoke()
-    interpreter.get_tensor(output_details[0]["index"])
+    start_point = time.time()
+    for _ in range(10):
+      interpreter.set_tensor(input_details[0]["index"], inputs)
+      interpreter.invoke()
+      interpreter.get_tensor(output_details[0]["index"])
+    print((time.time()-start_point) * 100, 'ms')

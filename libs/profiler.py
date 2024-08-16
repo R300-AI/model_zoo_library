@@ -63,6 +63,7 @@ class GPU_Benchmarks():
   def TFLite_Profiler(self, inputs, model_path):
     import numpy as np
     import tflite_runtime.interpreter as tflite
+    import time
     
     BACKENDS = "GpuAcc,CpuAcc,CpuRef"
     DELEGATE_PATH = "./libarmnnDelegate.so.29"

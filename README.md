@@ -17,7 +17,8 @@
   git clone https://github.com/R300-AI/model_zoo_library.git
   cd model_zoo_library
 
-  sudo bash install_armnn.sh
+  sudo ln ${LD_LIBRARY_PATH}/libarmnnDelegate.so.29.0 libarmnnDelegate.so.29
+  sudo ln ${LD_LIBRARY_PATH}/llibarmnn.so.33.0 llibarmnn.so.33
   pip install -r requirements.txt
   ```
 

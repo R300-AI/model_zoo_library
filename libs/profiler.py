@@ -7,11 +7,26 @@ class CPU_Benchmarks():
       if model_path.endswith('.pt'):
         self.TorchScript_Pofiler(inputs, model_path)
       else:
-        pass
-      raise Warning("ONNX Format are recommanded to CPU benchmarks.")
+        self.TFLite_Profiler(inputs, model_path)
 
   def TFLite_Profiler(self, inputs, model_path):
-    raise Warning("Profiling TFLite Format are not support yet.")
+    import numpy as np
+    import tflite_runtime.interpreter as tflite
+    
+    BACKENDS = "CpuAcc"  #"GpuAcc,CpuAcc,CpuRef"
+    DELEGATE_PATH = "./libarmnnDelegate.so.29"
+    
+    
+    interpreter = tflite.Interpreter(model_path = model_path, experimental_delegates = [tflite.load_delegate(library = DELEGATE_PATH, 
+                                                                                                                             options = {"backends":BACKENDS, "logging-severity": "info"})])
+    interpreter.allocate_tensors()
+    input_details, output_details = interpreter.get_input_details(), interpreter.get_output_details()
+    
+    inputs = np.zeros(input_details[0]['shape'], dtype=np.float32)
+    
+    interpreter.set_tensor(input_details[0]["index"], inputs)
+    interpreter.invoke()
+    interpreter.get_tensor(output_details[0]["index"])
 
   def ONNX_Profiler(self, inputs, model_path):
     import onnx_tool
@@ -33,3 +48,30 @@ class CPU_Benchmarks():
           with torch.inference_mode():
             model(inputs)
       print(prof.key_averages().table(sort_by="cpu_time_total"))
+
+class GPU_Benchmarks():
+  def __init__(self, inputs, model_path):
+  
+    if model_path.endswith('.tflite'):
+      self.TFLite_Profiler(inputs, model_path)
+    else:
+      print('require .tflite model')
+
+  def TFLite_Profiler(self, inputs, model_path):
+    import numpy as np
+    import tflite_runtime.interpreter as tflite
+    
+    BACKENDS = "GpuAcc,CpuAcc,CpuRef"
+    DELEGATE_PATH = "./libarmnnDelegate.so.29"
+    
+    
+    interpreter = tflite.Interpreter(model_path = model_path, experimental_delegates = [tflite.load_delegate(library = DELEGATE_PATH, 
+                                                                                                                             options = {"backends":BACKENDS, "logging-severity": "info"})])
+    interpreter.allocate_tensors()
+    input_details, output_details = interpreter.get_input_details(), interpreter.get_output_details()
+    
+    inputs = np.zeros(input_details[0]['shape'], dtype=np.float32)
+    
+    interpreter.set_tensor(input_details[0]["index"], inputs)
+    interpreter.invoke()
+    interpreter.get_tensor(output_details[0]["index"])

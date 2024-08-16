@@ -15,6 +15,7 @@
   git clone https://github.com/R300-AI/model_zoo_library.git
   cd model_zoo_library
 
+  sudo bash install_armnn.sh
   pip install -r requirements.txt
   ```
 

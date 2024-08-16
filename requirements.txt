@@ -7,3 +7,4 @@ onnxruntime
 onnx_tool
 
 tflite-runtime
+tabulate

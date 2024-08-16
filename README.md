@@ -18,7 +18,7 @@
   cd model_zoo_library
 
   sudo ln ${LD_LIBRARY_PATH}/libarmnnDelegate.so.29.0 libarmnnDelegate.so.29
-  sudo ln ${LD_LIBRARY_PATH}/llibarmnn.so.33.0 llibarmnn.so.33
+  sudo ln ${LD_LIBRARY_PATH}/libarmnn.so.33.0 libarmnn.so.33
   pip install -r requirements.txt
   ```
 

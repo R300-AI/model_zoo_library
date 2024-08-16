@@ -1,6 +1,7 @@
 # model_zoo_library
-## Model Zoo
-### MediaTek Genio
+
+## MediaTek Genio
+
 * **Supported Operation System and Accelerators**
   
   |         OS       | ArmNN<br><sup>(Cortex-CPU, Mali-GPU)  | NeuronPilot<br><sup>(MDLA, VP)  |          PCIe Plugins          |
@@ -9,7 +10,8 @@
   |      Ubuntu      |          :white_check_mark:           |       :black_square_button:     |  `Hailo-8`                     |
 
   *Compatibility between the engine and the operating system.*
-
+  
+### Ubuntu
 **Step1.** Connect to internet and clone this repository to your device.
   ```
   git clone https://github.com/R300-AI/model_zoo_library.git

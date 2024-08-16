@@ -14,7 +14,7 @@ class CPU_Benchmarks():
     import tflite_runtime.interpreter as tflite
     
     BACKENDS = "CpuAcc"  #"GpuAcc,CpuAcc,CpuRef"
-    DELEGATE_PATH = "./libarmnnDelegate.so.29"
+    DELEGATE_PATH = "/armnn/libarmnnDelegate.so.29"
     
     
     interpreter = tflite.Interpreter(model_path = model_path, experimental_delegates = [tflite.load_delegate(library = DELEGATE_PATH, 

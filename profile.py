@@ -13,4 +13,6 @@ if __name__ == '__main__':
   
   if args.engine == 'CPU':
     CPU_Benchmarks(inputs, args.model)
+  elif args.engine == 'ArmNN':
+    GPU_Benchmarks(inputs, args.model)
 

@@ -6,7 +6,7 @@
   |         OS       | ArmNN<br><sup>(Cortex-CPU, Mali-GPU)  | NeuronPilot<br><sup>(MDLA, VP)  |          PCIe Plugins          |
   |         ----     |         --------------------          |       -------------------       |      -------------------       |
   |      Yocto       |        :white_check_mark:             |       :white_check_mark:        |                                |
-  |      Ubuntu      |       :black_square_button:           |       :white_check_mark:        |  `Hailo-8`                     |
+  |      Ubuntu      |          :white_check_mark:           |       :black_square_button:     |  `Hailo-8`                     |
 
   *Compatibility between the engine and the operating system.*
 

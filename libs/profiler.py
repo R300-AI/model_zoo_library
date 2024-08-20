@@ -41,7 +41,7 @@ class ONNX_Profiler():
       import numpy as np
 
       self.input_shape = np.array([d.dim_value for d in onnx.load(model_path).graph.input[0].type.tensor_type.shape.dim])
-      print(input_shape)
+      print(self.input_shape)
       self.model = onnx_tool.Model(model_path, {'constant_folding': True, 'verbose': True, 'if_fixed_branch': 'else', 'fixed_topk': 0})
       self.log = f"【ONNX Runtime】\n - Model: {model_path}\n"
 

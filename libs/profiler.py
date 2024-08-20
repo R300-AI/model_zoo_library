@@ -37,15 +37,17 @@ class ONNX_Profiler():
     """
     def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu]
       varify_package_installed('onnx_tool')
-      import onnx_tool
-      
+      import onnx_tool, onnx
+      import numpy as np
+
+      input_shape = onnx.load(model_path).graph.input[0].type.tensor_type.shape.dim
+      print(input_shape)
       self.model = onnx_tool.Model(model_path, {'constant_folding': True, 'verbose': True, 'if_fixed_branch': 'else', 'fixed_topk': 0})
       self.log = f"【ONNX Runtime】\n - Model: {model_path}\n"
 
     def run(self, input_size):   #@input_size: [None, int]
       print(self.log)
-
-      inputs = torch.from_numpy(input_size).float()
+        
       self.model.graph.graph_reorder_nodes()
       self.model.graph.shape_infer({'data': inputs.shape})
       self.model.graph.profile()

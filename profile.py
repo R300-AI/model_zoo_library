@@ -11,5 +11,8 @@ args = parser.parse_args()
 
 if __name__ == '__main__':
   # inputs = np.random.rand(*np.array(args.input_size.split(',')).astype(int))
-  Benchmarks(args.processor, args.model)
+  if args.processor.lower() == 'general':
+    General_Benchmark(args.chipset, args.model)
+  elif args.processor.lower() == 'genio':
+    Genio_Benchmark(args.chipset, args.model)
 

@@ -68,13 +68,13 @@ class TFLite_Profiler():
       import tflite
 
       if chipset == 'cpu':
-        BACKENDS = CPU
-        self.interpreter = tflite.Interpreter(model_path = model_path)
+        BACKENDS = 'CPU'
+        self.model = tflite.Interpreter(model_path = model_path)
           
       elif chipset == 'gpu':
         BACKENDS = 'GpuAcc,CpuAcc'
         DELEGATE_PATH = "/home/ubuntu/armnn/libarmnnDelegate.so.29"
-        self.interpreter = tflite.Interpreter(model_path = model_path, experimental_delegates = [tflite.load_delegate(library = DELEGATE_PATH, options = {"backends":BACKENDS, "logging-severity": "info"})])
+        self.model = tflite.Interpreter(model_path = model_path, experimental_delegates = [tflite.load_delegate(library = DELEGATE_PATH, options = {"backends":BACKENDS, "logging-severity": "info"})])
 
       self.log = f"【TFLite Runtime】\n - Model: {model_path}\n - Device: {BACKENDS}"
 
@@ -82,13 +82,13 @@ class TFLite_Profiler():
       print(self.log)
 
       inputs = np.zeros(input_details[0]['shape'], dtype=np.float32)
-      self.interpreter.allocate_tensors()
-      input_details, output_details = self.interpreter.get_input_details(), interpreter.get_output_details()
+      self.model.allocate_tensors()
+      input_details, output_details = self.model.get_input_details(), interpreter.get_output_details()
       start_point = time.time()
       for _ in range(10):
-        self.interpreter.set_tensor(input_details[0]["index"], inputs)
-        self.interpreter.invoke()
-        self.interpreter.get_tensor(output_details[0]["index"])
+        self.model.set_tensor(input_details[0]["index"], inputs)
+        self.model.invoke()
+        self.model.get_tensor(output_details[0]["index"])
       print((time.time()-start_point) * 100, 'ms')
 
 

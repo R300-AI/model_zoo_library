@@ -52,19 +52,26 @@ class TFLite_Profiler():
     Chipsets for General Benchmark: [cpu]
     Chipsets for Genio Benchmark: [cpu, gpu, apu]
     """
-    def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu]
+    def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu, apu]
       import_or_install('onnx_tool')
-      
-      self.model = tflite.Interpreter(model_path = model_path)
-      self.log = f"【TFLite Runtime】\n - Model: {model_path}\n"
+
+      if chipset == 'cpu':
+        BACKENDS = CPU
+        self.model = tflite.Interpreter(model_path = model_path)
+          
+      elif chipset == 'gpu':
+        BACKENDS = 'GpuAcc,CpuAcc'
+        DELEGATE_PATH = "/home/ubuntu/armnn/libarmnnDelegate.so.29"
+        self.interpreter = tflite.Interpreter(model_path = model_path, experimental_delegates = [tflite.load_delegate(library = DELEGATE_PATH, options = {"backends":BACKENDS, "logging-severity": "info"})])
+
+      self.log = f"【TFLite Runtime】\n - Model: {model_path}\n - Device: {BACKENDS}"
 
     def run(self, input_size):   #@input_size: [None, int]
       print(self.log)
 
+      inputs = np.zeros(input_details[0]['shape'], dtype=np.float32)
       interpreter.allocate_tensors()
       input_details, output_details = interpreter.get_input_details(), interpreter.get_output_details()
-      
-      inputs = np.zeros(input_details[0]['shape'], dtype=np.float32)
       start_point = time.time()
       for _ in range(10):
         interpreter.set_tensor(input_details[0]["index"], inputs)

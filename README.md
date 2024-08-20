@@ -11,7 +11,7 @@
 ## Deploy to General Platforms
   * with CPU only
   ```
-  python3 profile.py --model <path-to-your-model>.pt
+  python3 profile.py --model <path-to-your-model>.pt --input_size '1, 3, 244, 244'
   # python3 profile.py --model <path-to-your-model>.onnx
   # python3 profile.py --model <path-to-your-model>.tflite
   ```

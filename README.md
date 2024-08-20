@@ -16,7 +16,6 @@
   # python3 profile.py --model <path-to-your-model>.tflite
   ```
   * with NVIDIA GPU (*NOT prepared yet.*)
-  * with CPU only
   ```
   python3 profile.py --model <path-to-your-model>.pt --processor gpu
   # python3 profile.py --model <path-to-your-model>.onnx --processor gpu

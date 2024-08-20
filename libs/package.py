@@ -1,6 +1,6 @@
 import os
 
-def import_or_install(package):
+def import_with_install(package):
   try:
       __import__(package)
   except ImportError:

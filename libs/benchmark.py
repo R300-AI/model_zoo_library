@@ -2,6 +2,7 @@ class General_Benchmark():
   def __init__(self, chipset, model_path, input_size=None):
     ext = model_path.split('.')[-1]
     engine = {'cpu': ['pt', 'onnx', 'tflite'], 'gpu': ['pt'], 'apu': ['onnx']}
+    print(model_path)
     print(ext)
     print(engine[chipset])
     assert ext in engine[chipset], f"{ext} format are not support for {chipset}."
@@ -18,7 +19,7 @@ class Genio_Benchmark():
     self.profiler = [delegate(chipset, model_path) for format in engine[chipset] if format==ext]
     self.profiler.run(input_size)
 
-def delegate(chipset):
+def delegate(chipset, model_path):
   if model_path.endswith('.pt'):
     from profiler import TorchScript_Pofiler
     return TorchScript_Pofiler(model_path, chipset)

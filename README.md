@@ -48,4 +48,4 @@
   | PyTorch/Vision   |  `ResNets`, `SSDs`                    | 
   
 ## Acknowledgement
-### Add more tools
+This repository is maintained by EOSL-R300, we would appreciate your contribution if you provide additional software support for this.

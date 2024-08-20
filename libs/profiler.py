@@ -9,30 +9,35 @@ class TorchScript_Pofiler():
       self.model = torch.jit.load(model_path)
       self.model.to(self.device)
       self.model.eval()
-      self.log = f"【TorchScript Pofiler】\n - Model: {model_path}\n - Device: {self.device}\n"
+      self.log = f"【TorchScript Runtime】\n - Model: {model_path}\n - Device: {self.device}\n"
 
     def run(self, input_size):   #@input_size: [None, int]
       from torch.profiler import profile, record_function, ProfilerActivity
       self.log += f" - Input Size: {input_size}\n"
       print(self.log)
         
-      inputs = torch.from_numpy(inputs).float()
+      inputs = torch.from_numpy(input_size).float()
       with profile(activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA], record_shapes=True, profile_memory=True, with_flops=True) as prof:
         with record_function(""):
           with torch.inference_mode():
             model(inputs)
       print(prof.key_averages().table(sort_by="cpu_time_total"))
 
+class ONNX_Profiler():  
+    def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu]
+      import_or_install('onnx_tool')
+      
+      self.model = onnx_tool.Model(model_path, {'constant_folding': True, 'verbose': True, 'if_fixed_branch': 'else', 'fixed_topk': 0})
+      self.log = f"【ONNX Runtime】\n - Model: {model_path}\n"
 
+    def run(self, input_size):   #@input_size: [None, int]
+      print(self.log)
 
-def ONNX_Profiler(self, inputs, model_path):
-  import_or_install('onnx_tool')
-
-  m = onnx_tool.Model(model_path, {'constant_folding': True, 'verbose': True, 'if_fixed_branch': 'else', 'fixed_topk': 0})
-  m.graph.graph_reorder_nodes()
-  m.graph.shape_infer({'data': inputs.shape})
-  m.graph.profile()
-  print(m.graph.print_node_map())
+      inputs = torch.from_numpy(input_size).float()
+      self.model.graph.graph_reorder_nodes()
+      self.model.graph.shape_infer({'data': inputs.shape})
+      self.model.graph.profile()
+      print(self.model.graph.print_node_map())
 
 def TFLite_Profiler(self, inputs, model_path):
   import_or_install('tflite_runtime')

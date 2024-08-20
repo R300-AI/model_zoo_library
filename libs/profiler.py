@@ -57,7 +57,7 @@ class TFLite_Profiler():
 
       if chipset == 'cpu':
         BACKENDS = CPU
-        self.model = tflite.Interpreter(model_path = model_path)
+        self.interpreter = tflite.Interpreter(model_path = model_path)
           
       elif chipset == 'gpu':
         BACKENDS = 'GpuAcc,CpuAcc'
@@ -70,13 +70,13 @@ class TFLite_Profiler():
       print(self.log)
 
       inputs = np.zeros(input_details[0]['shape'], dtype=np.float32)
-      interpreter.allocate_tensors()
-      input_details, output_details = interpreter.get_input_details(), interpreter.get_output_details()
+      self.interpreter.allocate_tensors()
+      input_details, output_details = self.interpreter.get_input_details(), interpreter.get_output_details()
       start_point = time.time()
       for _ in range(10):
-        interpreter.set_tensor(input_details[0]["index"], inputs)
-        interpreter.invoke()
-        interpreter.get_tensor(output_details[0]["index"])
+        self.interpreter.set_tensor(input_details[0]["index"], inputs)
+        self.interpreter.invoke()
+        self.interpreter.get_tensor(output_details[0]["index"])
       #print((time.time()-start_point) * 100, 'ms')
 
 

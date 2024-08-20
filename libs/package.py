@@ -2,6 +2,6 @@ import os
 
 def import_or_install(package):
   try:
-      import cv2
+      __import__(package)
   except ImportError:
       os.system(f'pip install {package}')

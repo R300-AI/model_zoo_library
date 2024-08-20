@@ -1,4 +1,4 @@
-from .package import import_with_install
+from .package import varify_package_installed
 
 class TorchScript_Pofiler():
     """
@@ -6,9 +6,10 @@ class TorchScript_Pofiler():
     Chipsets for Genio Benchmark: [cpu]
     """
     def __init__(self, model_path, chipset):  
-      import_with_install('torch')
+      varify_package_installed('torch')
+      import torch
+        
       self.device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
-
       self.model = torch.jit.load(model_path)
       self.model.to(self.device)
       self.model.eval()
@@ -33,7 +34,7 @@ class ONNX_Profiler():
     Chipsets for Genio Benchmark: [cpu]
     """
     def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu]
-      import_with_install('onnx_tool')
+      varify_package_installed('onnx_tool')
       
       self.model = onnx_tool.Model(model_path, {'constant_folding': True, 'verbose': True, 'if_fixed_branch': 'else', 'fixed_topk': 0})
       self.log = f"【ONNX Runtime】\n - Model: {model_path}\n"
@@ -53,7 +54,7 @@ class TFLite_Profiler():
     Chipsets for Genio Benchmark: [cpu, gpu, apu]
     """
     def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu, apu]
-      import_with_install('onnx_tool')
+      varify_package_installed('onnx_tool')
 
       if chipset == 'cpu':
         BACKENDS = CPU

@@ -1,3 +1,15 @@
+# Usage
+**Step1.** Connect to internet and clone this repository to your device.
+  ```
+  git clone https://github.com/R300-AI/model_zoo_library.git
+  cd model_zoo_library
+  ```
+
+**Step2.** Select and download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
+
+
+## Deploy to MediaTek Genio
+
 ## Deploy to MediaTek Genio
 
 * **Supported Operation System and Accelerators**
@@ -10,16 +22,7 @@
   *Compatibility between the engine and the operating system.*
   
 ### Ubuntu
-**Step1.** Connect to internet and clone this repository to your device.
-  ```
-  git clone https://github.com/R300-AI/model_zoo_library.git
-  cd model_zoo_library
 
-  sudo ln ${LD_LIBRARY_PATH}/libarmnnDelegate.so.29.0 libarmnnDelegate.so.29
-  sudo ln ${LD_LIBRARY_PATH}/libarmnn.so.33.0 libarmnn.so.33
-  ```
-
-**Step2.** Select and download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
 
 **Step3.** Run this command to get benchmark reports. (engine)
   ```

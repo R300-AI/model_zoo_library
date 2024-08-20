@@ -7,7 +7,6 @@
 
 **Step2.** Select and download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
 
-
 ## Deploy to General Computers
   * with CPU only
   ```

@@ -8,7 +8,7 @@
 **Step2.** Select and download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
 
 
-## Deploy to General Platforms
+## Deploy to General Computers
   * with CPU only
   ```
   python3 profile.py --model <path-to-your-model>.pt --input_size '1, 3, 244, 244'

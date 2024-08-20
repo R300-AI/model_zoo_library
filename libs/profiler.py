@@ -1,7 +1,11 @@
 from .package import import_or_install
 
-class TorchScript_Pofiler():  
-    def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu]
+class TorchScript_Pofiler():
+    """
+    Chipsets for General Benchmark: [cpu, gpu]
+    Chipsets for Genio Benchmark: [cpu]
+    """
+    def __init__(self, model_path, chipset):  
       import_or_install('torch')
       import torch
       self.device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
@@ -24,6 +28,30 @@ class TorchScript_Pofiler():
       print(prof.key_averages().table(sort_by="cpu_time_total"))
 
 class ONNX_Profiler():  
+    """
+    Chipsets for General Benchmark: [cpu]
+    Chipsets for Genio Benchmark: [cpu]
+    """
+    def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu]
+      import_or_install('onnx_tool')
+      
+      self.model = onnx_tool.Model(model_path, {'constant_folding': True, 'verbose': True, 'if_fixed_branch': 'else', 'fixed_topk': 0})
+      self.log = f"【ONNX Runtime】\n - Model: {model_path}\n"
+
+    def run(self, input_size):   #@input_size: [None, int]
+      print(self.log)
+
+      inputs = torch.from_numpy(input_size).float()
+      self.model.graph.graph_reorder_nodes()
+      self.model.graph.shape_infer({'data': inputs.shape})
+      self.model.graph.profile()
+      print(self.model.graph.print_node_map())
+
+class TFLite_Profiler():  
+    """
+    Chipsets for General Benchmark: [cpu]
+    Chipsets for Genio Benchmark: [cpu, gpu, apu]
+    """
     def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu]
       import_or_install('onnx_tool')
       

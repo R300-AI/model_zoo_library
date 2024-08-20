@@ -1,16 +1,21 @@
-from profiler import TorchScript_Pofiler, ONNX_Profiler, TFLite_Profiler
+class General_Benchmark(chipset, model_path, inputs=None):
+  def __init__():
+    ext = model_path.split('.')[-1]
+    engine = {'cpu': ['.pt', '.onnx', '.tflite'], 'gpu': ['.pt'], 'apu': ['.onnx']}
+    assert ext in engine[chipset], f"{ext} format are not support for {chipset}."
 
-class Benchmarks():
-  def Benchmarks(processor, model_path, inputs=None):
-    processor = processor.lower()
-    assert processor in ['cpu', 'gpu'], "--processor should be 'cpu' or 'gpu."
-    assert model_path.split('.')[-1] in ['pt', 'onnx', 'tflite'], "--model_path should be 'pt', 'onnx' or 'tflite' format."
-    
-    if model_path.endswith('.pt'):
-      self.TorchScript_Pofiler(processor, model_path)
-    
-    elif model_path.endswith('.onnx'):
-      self.ONNX_Profiler(processor, model_path)
-    
-    elif model_path.endswith('.tflite'):
-      self.TFLite_Profiler(processor, model_path)
+    self.profiler = [delegate(chipset, model_path) for format in engine[chipset] if format==ext]
+    self.profiler.run(model_path)
+
+def delegate(chipset):
+  if model_path.endswith('.pt'):
+    from profiler import TorchScript_Pofiler
+    return TorchScript_Pofiler(model_path, chipset)
+  
+  elif model_path.endswith('.onnx'):
+    from profiler import ONNX_Profiler
+    return ONNX_Profiler(model_path, chipset)
+  
+  elif model_path.endswith('.tflite'):
+    from profiler import TFLite_Profiler
+    return TFLite_Profiler(model_path, chipset)

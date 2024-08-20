@@ -8,9 +8,12 @@
 **Step2.** Select and download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
 
 
-## Deploy to MediaTek Genio
+## Deploy to General Platforms
+  ```
+  python3 profile.py --model <path-to-your-model>.onnx --engine CPU --input_size '1, 3, 244, 244'
+  ```
 
-## Deploy to MediaTek Genio
+## Deploy to MediaTek Genios
 
 * **Supported Operation System and Accelerators**
   
@@ -24,10 +27,7 @@
 ### Ubuntu
 
 
-**Step3.** Run this command to get benchmark reports. (engine)
-  ```
-  python3 profile.py --model <path-to-your-model>.onnx --engine CPU --input_size '1, 3, 244, 244'
-  ```
+
 
 ## Model Zoo Demo Template
 ### ArmNN Runtime

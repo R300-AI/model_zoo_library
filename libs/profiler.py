@@ -18,7 +18,7 @@ class TorchScript_Pofiler():
     def run(self, input_size):   #@input_size: [None, int]
       import torch
       from torch.profiler import profile, record_function, ProfilerActivity
-      self.log += f" - Input Size: {input_size}\n"
+      self.log += f" - Input Size: ({input_size})\n"
       print(self.log)
 
       assert input_size != None, "--input_size is necessary for TorchScript Runtime"

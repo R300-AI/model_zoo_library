@@ -57,7 +57,8 @@ class TFLite_Profiler():
     Chipsets for Genio Benchmark: [cpu, gpu, apu]
     """
     def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu, apu]
-      varify_package_installed('onnx_tool')
+      varify_package_installed('tflite-runtime')
+      import tflite
 
       if chipset == 'cpu':
         BACKENDS = CPU
@@ -81,7 +82,7 @@ class TFLite_Profiler():
         self.interpreter.set_tensor(input_details[0]["index"], inputs)
         self.interpreter.invoke()
         self.interpreter.get_tensor(output_details[0]["index"])
-      #print((time.time()-start_point) * 100, 'ms')
+      print((time.time()-start_point) * 100, 'ms')
 
 
 

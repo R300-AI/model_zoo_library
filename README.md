@@ -19,7 +19,6 @@
 
   sudo ln ${LD_LIBRARY_PATH}/libarmnnDelegate.so.29.0 libarmnnDelegate.so.29
   sudo ln ${LD_LIBRARY_PATH}/libarmnn.so.33.0 libarmnn.so.33
-  pip install -r requirements.txt
   ```
 
 **Step2.** Select and download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).

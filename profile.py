@@ -1,6 +1,6 @@
 import argparse
 import numpy as np
-from libs.profiler import CPU_Benchmarks, GPU_Benchmarks
+from libs.profiler import General_Benchmark, Genio_Benchmark
 
 parser = argparse.ArgumentParser()
 parser.add_argument("-m", "--model", default=None, type=str, required=True, help="The path to the candidate model. (e.g. ./../*.onnx, ./../*.tflite)")

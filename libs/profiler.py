@@ -9,10 +9,13 @@ class TorchScript_Pofiler():
       self.model = torch.jit.load(model_path)
       self.model.to(self.device)
       self.model.eval()
+      self.log = f"【TorchScript Pofiler】\n - Device: {self.device}\n"
 
-    def run(self):
+    def run(self, input_size):   #@input_size: [None, int]
       from torch.profiler import profile, record_function, ProfilerActivity
-
+      self.log += f" - Input Size: {input_size}\n"
+      print(self.log)
+        
       inputs = torch.from_numpy(inputs).float()
       with profile(activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA], record_shapes=True, profile_memory=True, with_flops=True) as prof:
         with record_function(""):

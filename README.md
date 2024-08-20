@@ -17,7 +17,7 @@
   ```
   * with NVIDIA-GPU (*NOT prepared yet.*)
   ```
-  python3 profile.py --model <path-to-your-model>.pt --processor gpu
+  python3 profile.py --model <path-to-your-model>.pt --processor gpu --input_size '1, 3, 244, 244'
   # python3 profile.py --model <path-to-your-model>.onnx --processor gpu
   ```
 

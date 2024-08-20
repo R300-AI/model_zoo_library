@@ -20,13 +20,13 @@ class TorchScript_Pofiler():
       from torch.profiler import profile, record_function, ProfilerActivity
       self.log += f" - Input Size: {input_size}\n"
       print(self.log)
-        
-      inputs = torch.from_numpy(input_size).float()
+
+      assert input_size != None, "--input_size is necessary for TorchScript Runtime"
       with profile(activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA], record_shapes=True, profile_memory=True, with_flops=True) as prof:
         with record_function(""):
           with torch.inference_mode():
-            model(inputs)
-      #print(prof.key_averages().table(sort_by="cpu_time_total"))
+            model(torch.from_numpy(input_size).float())
+      print(prof.key_averages().table(sort_by="cpu_time_total"))
 
 class ONNX_Profiler():  
     """

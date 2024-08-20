@@ -26,7 +26,7 @@
   python3 profile.py --model <path-to-your-model>.onnx --engine CPU --input_size '1, 3, 244, 244'
   ```
 
-## Demo Template
+## Model Zoo Demo Template
 ### ArmNN Runtime
 * [Python](https://github.com/R300-AI/model_zoo_library/blob/main/template/armnn.py)
 

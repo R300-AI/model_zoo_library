@@ -4,7 +4,7 @@ class General_Benchmark():
     engine = {'cpu': ['pt', 'onnx', 'tflite'], 'gpu': ['pt'], 'apu': ['onnx']}
     assert ext in engine[chipset], f"{ext} format are not support for {chipset}."
 
-    self.profiler = [delegate(chipset, model_path) for format in engine[chipset] if format==ext]
+    self.profiler = [delegate(chipset, model_path) for format in engine[chipset] if format==ext][0]
     self.profiler.run(input_size)
 
 class Genio_Benchmark():

@@ -9,7 +9,7 @@ class TorchScript_Pofiler():
       varify_package_installed('torch')
       import torch
         
-      self.device = torch.device('cuda:0' if torch.cuda.is_available() else 'cpu')
+      self.device = torch.device('cuda:0' if torch.cuda.is_available() and chipset=='gpu' else 'cpu')
       self.model = torch.jit.load(model_path)
       self.model.to(self.device)
       self.model.eval()

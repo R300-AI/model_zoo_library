@@ -9,7 +9,7 @@ class TorchScript_Pofiler():
       self.model = torch.jit.load(model_path)
       self.model.to(self.device)
       self.model.eval()
-      self.log = f"【TorchScript Pofiler】\n - Device: {self.device}\n"
+      self.log = f"【TorchScript Pofiler】\n - Model: {model_path}\n - Device: {self.device}\n"
 
     def run(self, input_size):   #@input_size: [None, int]
       from torch.profiler import profile, record_function, ProfilerActivity

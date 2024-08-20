@@ -11,8 +11,10 @@
 ## Deploy to General Platforms
   * Using CPU
   ```
-  python3 profile.py --model <path-to-your-model>.tflite
-  ```
+  python3 profile.py --model <path-to-your-model>.pt
+  # python3 profile.py --model <path-to-your-model>.onnx
+  # python3 profile.py --model <path-to-your-model>.tflite
+```
   * Using NVIDIA GPU (*NOT prepared yet.*)
 
 ## Deploy to MediaTek Genios

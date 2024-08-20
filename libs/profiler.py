@@ -40,7 +40,7 @@ class ONNX_Profiler():
       import onnx_tool, onnx
       import numpy as np
 
-      input_shape = onnx.load(model_path).graph.input[0].type.tensor_type.shape.dim
+      self.input_shape = np.array([d.dim_value for d in onnx.load(model_path).graph.input[0].type.tensor_type.shape.dim])
       print(input_shape)
       self.model = onnx_tool.Model(model_path, {'constant_folding': True, 'verbose': True, 'if_fixed_branch': 'else', 'fixed_topk': 0})
       self.log = f"【ONNX Runtime】\n - Model: {model_path}\n"
@@ -49,11 +49,12 @@ class ONNX_Profiler():
       print(self.log)
       print(input_size)
       if input_size != None:
-          inputs = np.random.rand(*np.array(input_size.split(',')).astype(int))
+          input_shape = np.random.rand(*np.array(input_size.split(',')).astype(int)).shape
       else:
-              
+          input_shape = self.input_shape
+      print(input_shape)
       self.model.graph.graph_reorder_nodes()
-      self.model.graph.shape_infer({'data': inputs.shape})
+      self.model.graph.shape_infer({'data': input_shape})
       self.model.graph.profile()
       #print(self.model.graph.print_node_map())
 

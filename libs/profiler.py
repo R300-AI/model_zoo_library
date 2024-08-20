@@ -47,7 +47,7 @@ class ONNX_Profiler():
 
     def run(self, input_size):   #@input_size: [None, int]
       print(self.log)
-        
+      print(input_size)
       self.model.graph.graph_reorder_nodes()
       self.model.graph.shape_infer({'data': inputs.shape})
       self.model.graph.profile()

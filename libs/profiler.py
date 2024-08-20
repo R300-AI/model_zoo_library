@@ -25,7 +25,7 @@ class TorchScript_Pofiler():
         with record_function(""):
           with torch.inference_mode():
             model(inputs)
-      print(prof.key_averages().table(sort_by="cpu_time_total"))
+      #print(prof.key_averages().table(sort_by="cpu_time_total"))
 
 class ONNX_Profiler():  
     """
@@ -45,7 +45,7 @@ class ONNX_Profiler():
       self.model.graph.graph_reorder_nodes()
       self.model.graph.shape_infer({'data': inputs.shape})
       self.model.graph.profile()
-      print(self.model.graph.print_node_map())
+      #print(self.model.graph.print_node_map())
 
 class TFLite_Profiler():  
     """
@@ -55,17 +55,22 @@ class TFLite_Profiler():
     def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu]
       import_or_install('onnx_tool')
       
-      self.model = onnx_tool.Model(model_path, {'constant_folding': True, 'verbose': True, 'if_fixed_branch': 'else', 'fixed_topk': 0})
-      self.log = f"【ONNX Runtime】\n - Model: {model_path}\n"
+      self.model = tflite.Interpreter(model_path = model_path)
+      self.log = f"【TFLite Runtime】\n - Model: {model_path}\n"
 
     def run(self, input_size):   #@input_size: [None, int]
       print(self.log)
 
-      inputs = torch.from_numpy(input_size).float()
-      self.model.graph.graph_reorder_nodes()
-      self.model.graph.shape_infer({'data': inputs.shape})
-      self.model.graph.profile()
-      print(self.model.graph.print_node_map())
+      interpreter.allocate_tensors()
+      input_details, output_details = interpreter.get_input_details(), interpreter.get_output_details()
+      
+      inputs = np.zeros(input_details[0]['shape'], dtype=np.float32)
+      start_point = time.time()
+      for _ in range(10):
+        interpreter.set_tensor(input_details[0]["index"], inputs)
+        interpreter.invoke()
+        interpreter.get_tensor(output_details[0]["index"])
+      #print((time.time()-start_point) * 100, 'ms')
 
 def TFLite_Profiler(self, inputs, model_path):
   import_or_install('tflite_runtime')
@@ -74,16 +79,7 @@ def TFLite_Profiler(self, inputs, model_path):
   import time
 
   interpreter = tflite.Interpreter(model_path = model_path)
-  interpreter.allocate_tensors()
-  input_details, output_details = interpreter.get_input_details(), interpreter.get_output_details()
   
-  inputs = np.zeros(input_details[0]['shape'], dtype=np.float32)
-  start_point = time.time()
-  for _ in range(10):
-    interpreter.set_tensor(input_details[0]["index"], inputs)
-    interpreter.invoke()
-    interpreter.get_tensor(output_details[0]["index"])
-  print((time.time()-start_point) * 100, 'ms')
 
 
 def TFLite_ArmNN_Profiler(self, inputs, model_path):

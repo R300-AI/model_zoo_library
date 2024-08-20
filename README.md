@@ -1,5 +1,3 @@
-# model_zoo_library
-
 ## Deploy to MediaTek Genio
 
 * **Supported Operation System and Accelerators**

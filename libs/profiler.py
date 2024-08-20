@@ -65,7 +65,7 @@ class TFLite_Profiler():
     """
     def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu, apu]
       varify_package_installed('tflite-runtime')
-      import tflite
+      import tflite_runtime as tflite
 
       if chipset == 'cpu':
         BACKENDS = 'CPU'

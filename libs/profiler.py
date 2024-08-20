@@ -17,6 +17,7 @@ class TorchScript_Pofiler():
 
     def run(self, input_size):   #@input_size: [None, int]
       import torch
+      import numpy as np
       from torch.profiler import profile, record_function, ProfilerActivity
       self.log += f" - Input Size: ({input_size})\n"
       print(self.log)

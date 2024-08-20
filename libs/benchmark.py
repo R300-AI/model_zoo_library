@@ -1,5 +1,5 @@
-class General_Benchmark(chipset, model_path, input_size=None):
-  def __init__():
+class General_Benchmark():
+  def __init__(self, chipset, model_path, input_size=None):
     ext = model_path.split('.')[-1]
     engine = {'cpu': ['.pt', '.onnx', '.tflite'], 'gpu': ['.pt'], 'apu': ['.onnx']}
     assert ext in engine[chipset], f"{ext} format are not support for {chipset}."
@@ -20,8 +20,8 @@ def delegate(chipset):
     from profiler import TFLite_Profiler
     return TFLite_Profiler(model_path, chipset)
 
-class Genio_Benchmark(chipset, model_path, input_size=None):
-  def __init__():
+class Genio_Benchmark():
+  def __init__(self, chipset, model_path, input_size=None):
     ext = model_path.split('.')[-1]
     engine = {'cpu': ['.pt', '.onnx', '.tflite'], 'gpu': ['.pt'], 'apu': ['.onnx']}
     assert ext in engine[chipset], f"{ext} format are not support for {chipset}."

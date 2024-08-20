@@ -1,4 +1,4 @@
-from .package import import_or_install
+from .package import import_with_install
 
 class TorchScript_Pofiler():
     """

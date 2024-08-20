@@ -37,6 +37,7 @@ class ONNX_Profiler():
     """
     def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu]
       varify_package_installed('onnx_tool')
+      import onnx_tool
       
       self.model = onnx_tool.Model(model_path, {'constant_folding': True, 'verbose': True, 'if_fixed_branch': 'else', 'fixed_topk': 0})
       self.log = f"【ONNX Runtime】\n - Model: {model_path}\n"

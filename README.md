@@ -13,10 +13,7 @@
   ```
   python3 profile.py --model <path-to-your-model>.tflite --chipset CPU --input_size '1, 3, 244, 244'
   ```
-  * Using GPU
-  ```
-  python3 profile.py --model <path-to-your-model>.tflite --chipset GPU --input_size '1, 3, 244, 244'
-  ```
+  * Using NVIDIA GPU (*NOT prepared yet.*)
 
 ## Deploy to MediaTek Genios
 

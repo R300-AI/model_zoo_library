@@ -48,4 +48,5 @@
   | PyTorch/Vision   |  `ResNets`, `SSDs`                    | 
   
 ## Acknowledgement
-This repository is maintained by EOSL-R300, we would appreciate your contribution if you provide additional software support for this.
+
+This repository is mainly maintained by the EOSL-R300, and we would be grateful for your contribution to help us add more supported benchmarks and hardware.

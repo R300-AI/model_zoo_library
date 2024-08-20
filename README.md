@@ -11,7 +11,7 @@
 ## Deploy to General Platforms
   * Using CPU
   ```
-  python3 profile.py --model <path-to-your-model>.tflite --chipset CPU --input_size '1, 3, 244, 244'
+  python3 profile.py --model <path-to-your-model>.tflite
   ```
   * Using NVIDIA GPU (*NOT prepared yet.*)
 

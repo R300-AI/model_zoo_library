@@ -48,6 +48,10 @@ class ONNX_Profiler():
     def run(self, input_size):   #@input_size: [None, int]
       print(self.log)
       print(input_size)
+      if input_size != None:
+          inputs = np.random.rand(*np.array(input_size.split(',')).astype(int))
+      else:
+              
       self.model.graph.graph_reorder_nodes()
       self.model.graph.shape_infer({'data': inputs.shape})
       self.model.graph.profile()

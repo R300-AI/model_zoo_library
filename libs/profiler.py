@@ -11,7 +11,7 @@ class CPU_Benchmarks():
         self.TFLite_Profiler(inputs, model_path)
 
   def TFLite_Profiler(self, inputs, model_path):
-    import_or_install(tflite_runtime)
+    import_or_install('tflite_runtime')
     import numpy as np
     import tflite_runtime.interpreter as tflite
     import time
@@ -34,7 +34,7 @@ class CPU_Benchmarks():
     print((time.time()-start_point) * 100, 'ms')
 
   def ONNX_Profiler(self, inputs, model_path):
-    import_or_install(onnx_tool)
+    import_or_install('onnx_tool')
 
     m = onnx_tool.Model(model_path, {'constant_folding': True, 'verbose': True, 'if_fixed_branch': 'else', 'fixed_topk': 0})
     m.graph.graph_reorder_nodes()
@@ -43,7 +43,7 @@ class CPU_Benchmarks():
     print(m.graph.print_node_map())
 
   def TorchScript_Pofiler(self, inputs, model_path):
-      import_or_install(torch)
+      import_or_install('torch')
     
       from torch.profiler import profile, record_function, ProfilerActivity
       model = torch.jit.load(model_path)
@@ -65,7 +65,7 @@ class GPU_Benchmarks():
       print('require .tflite model')
 
   def TFLite_Profiler(self, inputs, model_path):
-    import_or_install(tflite_runtime)
+    import_or_install('tflite_runtime')
     import numpy as np
     import tflite_runtime.interpreter as tflite
     import time

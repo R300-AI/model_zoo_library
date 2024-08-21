@@ -86,6 +86,10 @@ class TFLite_Profiler():
 
       self.model.allocate_tensors()
       input_details, output_details = self.model.get_input_details(), self.model.get_output_details()
+
+      # Get input shape and dtype
+      print("Input Dtype:", input_details[0]['dtype'])
+
       inputs = np.zeros(input_details[0]['shape'], dtype=np.float32)
       start_point = time.time()
       for _ in range(10):

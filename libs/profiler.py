@@ -81,7 +81,7 @@ class TFLite_Profiler():
 
     def run(self, input_size):   #@input_size: [None, int]
       print(self.log)
-
+      import numpy as np
       inputs = np.zeros(input_details[0]['shape'], dtype=np.float32)
       self.model.allocate_tensors()
       input_details, output_details = self.model.get_input_details(), interpreter.get_output_details()

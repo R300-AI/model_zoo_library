@@ -13,6 +13,8 @@
   ```bash
   python3 profile.py --model <path-to-your-model>.pt
   ```
+> `--processor`:
+> `--chipset`:
 
 ## Supported Metrics
 

@@ -1,6 +1,6 @@
 # model_zoo_library: A Hardware Performance Benchmarking Toolkit
 
-## Deploy to Your Device
+## Integrated Workflow
 
 **Step1.** Connect to internet and clone this repository to your device.
   ```

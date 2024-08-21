@@ -29,24 +29,6 @@
 
   *Compatibility between the engine and the operating system.*
 
-
-
-## Deploy to 
-
-## Deploy to General Computers
-  * with CPU only
-  ```
-  python3 profile.py --model <path-to-your-model>.pt --input_size '1, 3, 244, 244'
-  # python3 profile.py --model <path-to-your-model>.onnx
-  # python3 profile.py --model <path-to-your-model>.tflite
-  ```
-  * with NVIDIA-GPU (*NOT prepared yet.*)
-  ```
-  python3 profile.py --model <path-to-your-model>.pt --processor genio --chipset gpu --input_size '1, 3, 244, 244'
-  ```
-
-
-
 ## Model Zoo Demo Template
 ### ArmNN Runtime
 * [Python](https://github.com/R300-AI/model_zoo_library/blob/main/template/armnn.py)

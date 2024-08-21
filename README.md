@@ -1,4 +1,4 @@
-# model_zoo_library: Hardware Performance Benchmarking Toolkit
+# model_zoo_library: A Hardware Performance Benchmarking Toolkit
 
 **Step1.** Connect to internet and clone this repository to your device.
   ```

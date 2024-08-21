@@ -11,7 +11,7 @@
 
   *Compatibility between the engine and the operating system.*
 
-## Deploy to 
+## Deploy to Given Device
 
 **Step1.** Connect to internet and clone this repository to your device.
   ```

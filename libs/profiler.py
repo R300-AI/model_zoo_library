@@ -88,9 +88,7 @@ class TFLite_Profiler():
       input_details, output_details = self.model.get_input_details(), self.model.get_output_details()
 
       # Get input shape and dtype
-      print("Input Dtype:", input_details[0]['dtype'])
-
-      inputs = np.zeros(input_details[0]['shape'], dtype=np.float32)
+      inputs = np.zeros(input_details[0]['shape'], dtype=input_details[0]['dtype'])
       start_point = time.time()
       for _ in range(10):
         self.model.set_tensor(input_details[0]["index"], inputs)

@@ -16,7 +16,7 @@
   ```
 > **Params**: <br>
 > * `--model`: <br>
-> * `--processor`: <br>
+> * `--platform`: <br>
 > * `--chipset`: <br>
 
 ## Supported Metrics

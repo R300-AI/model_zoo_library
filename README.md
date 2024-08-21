@@ -52,4 +52,4 @@
   
 ## Acknowledgement
 
-This repository is mainly maintained by the EOSL-R300, and we would be grateful for your contribution to help us add more supported benchmarks and hardware.
+This repository is mainly maintained by the EOSL-R300, and we would be grateful for your contribution to help us add more supported hardware benchmarks.

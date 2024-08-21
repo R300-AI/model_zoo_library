@@ -8,7 +8,7 @@
   cd model_zoo_library
   ```
 
-**Step2.** download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
+**Step2.** Download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
 
 
 ## Supported Metrics

@@ -10,6 +10,9 @@
   |      Ubuntu      |          :white_check_mark:           |       :black_square_button:     |  `Hailo-8`                     |
 
   *Compatibility between the engine and the operating system.*
+
+## Deploy to 
+
 **Step1.** Connect to internet and clone this repository to your device.
   ```
   git clone https://github.com/R300-AI/model_zoo_library.git

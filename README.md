@@ -3,7 +3,7 @@
 ## Workflow
 
 **Step1.** Connect to internet and clone this repository to your device.
-  ```
+  ```bash
   git clone https://github.com/R300-AI/model_zoo_library.git
   cd model_zoo_library
   ```

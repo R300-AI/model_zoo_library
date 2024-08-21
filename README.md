@@ -15,9 +15,9 @@
   python3 profile.py --model <path-to-your-model>.pt
   ```
 > **Params**: <br>
-> * `--model`: <br>
-> * `--platform`: <br>
-> * `--chipset`: <br>
+> * `--model`: PATH to your model. <br>
+> * `--platform`: {`ipc`, `genio`} <br>
+> * `--chipset`: {`cpu`, `gpu`, `apu`} <br>
 
 ## Supported Metrics
 

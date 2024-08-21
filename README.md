@@ -1,5 +1,16 @@
 # model_zoo_library: A Hardware Performance Benchmarking Toolkit
 
+## Deploy to Your Device
+
+**Step1.** Connect to internet and clone this repository to your device.
+  ```
+  git clone https://github.com/R300-AI/model_zoo_library.git
+  cd model_zoo_library
+  ```
+
+**Step2.** download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
+
+
 ## Supported Metrics
 
 * **MediaTek Genios**
@@ -11,15 +22,6 @@
 
   *Compatibility between the engine and the operating system.*
 
-## Deploy to Given Device
-
-**Step1.** Connect to internet and clone this repository to your device.
-  ```
-  git clone https://github.com/R300-AI/model_zoo_library.git
-  cd model_zoo_library
-  ```
-
-**Step2.** download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
 
 
 ## Deploy to 

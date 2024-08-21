@@ -81,6 +81,7 @@ class TFLite_Profiler():
 
     def run(self, input_size):   #@input_size: [None, int]
       import numpy as np
+      import time
       print(self.log)
 
       self.model.allocate_tensors()

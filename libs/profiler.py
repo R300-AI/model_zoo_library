@@ -58,13 +58,14 @@ class ONNX_Profiler():
       self.model.graph.profile()
       #print(self.model.graph.print_node_map())
 
+
 class TFLite_Profiler():  
     """
     Chipsets for General Benchmark: [cpu]
     Chipsets for Genio Benchmark: [cpu, gpu, apu]
     """
     def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu, apu]
-      varify_package_installed('tflite-runtime')
+      varify_package_installed('tflite-runtimee==2.8.0')
       import tflite_runtime.interpreter as tflite
       import numpy as np
 
@@ -95,7 +96,6 @@ class TFLite_Profiler():
         self.model.invoke()
         self.model.get_tensor(output_details[0]["index"])
       print((time.time()-start_point) * 100, 'ms')
-
 
 
 

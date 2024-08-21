@@ -33,12 +33,6 @@
 ## Model Zoo Demo Template
 ### ArmNN Runtime
 * [Python](https://github.com/R300-AI/model_zoo_library/blob/main/template/armnn.py)
-
-
-## Bacnbone
-  |    Framework     |                Model Sets             | 
-  |         ----     |         --------------------          |  
-  | PyTorch/Vision   |  `ResNets`, `SSDs`                    | 
   
 ## Acknowledgement
 

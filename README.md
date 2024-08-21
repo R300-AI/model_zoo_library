@@ -7,10 +7,9 @@
   ```
 
 **Step2.** Select and download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
+## Supported Metric
 
-## Deploy to MediaTek Genios
-
-* **Supported Operation System and Accelerators**
+* **MediaTek Genios**
   
   |         OS       | ArmNN<br><sup>(Cortex-CPU, Mali-GPU)  | NeuronPilot<br><sup>(MDLA, VP)  |          PCIe Plugins          |
   |         ----     |         --------------------          |       -------------------       |      -------------------       |
@@ -18,8 +17,7 @@
   |      Ubuntu      |          :white_check_mark:           |       :black_square_button:     |  `Hailo-8`                     |
 
   *Compatibility between the engine and the operating system.*
-  
-### Ubuntu
+## Deploy to 
 
 ## Deploy to General Computers
   * with CPU only

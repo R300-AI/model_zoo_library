@@ -1,4 +1,5 @@
-# Usage
+# model_zoo_library: Hardware Performance Benchmarking Toolkit
+
 **Step1.** Connect to internet and clone this repository to your device.
   ```
   git clone https://github.com/R300-AI/model_zoo_library.git

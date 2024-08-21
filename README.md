@@ -9,6 +9,7 @@
   ```
 
 **Step2.** Download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
+
 **Step3.** Run.
   ```bash
   python3 profile.py --model <path-to-your-model>.pt

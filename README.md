@@ -5,8 +5,13 @@
   cd model_zoo_library
   ```
 
-**Step2.** Select and download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
-**Step3.**
+**Step2.** Python3.8
+  ```
+  conda create --name model_zoo_library python=3.8
+  source activate model_zoo_library
+  ```
+
+**Step3.** Select and download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo) and ...
   ```
   python profile.py --model <model_path>.onnx --platform custom --chipset cpu
   ```

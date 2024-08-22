@@ -12,8 +12,8 @@
   ```
 >**Params**
 > * `--model`: PATH to the model.
-> * `--platform`: {`custom`, `genio`}
-> * `--chipset`: {`cpu`, `gpu`, `apu`} 
+> * `--platform`: {custom, genio}
+> * `--chipset`: {cpu, gpu, `apu} 
 
 ## Deploy to MediaTek Genios
 

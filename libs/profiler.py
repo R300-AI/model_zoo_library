@@ -1,101 +1,94 @@
-from .package import varify_package_installed
+from .tools import VARIFY_PACKAGE_INSTALLED, GET_LOGGER
 
-class TorchScript_Pofiler():
-    """
-    Chipsets for General Benchmark: [cpu, gpu]
-    Chipsets for Genio Benchmark: [cpu]
-    """
-    def __init__(self, model_path, chipset):  
-      varify_package_installed('torch')
-      import torch
-        
-      self.device = torch.device('cuda:0' if torch.cuda.is_available() and chipset=='gpu' else 'cpu')
-      self.model = torch.jit.load(model_path)
-      self.model.to(self.device)
-      self.model.eval()
-      self.log = f"【TorchScript Runtime】\n - Model: {model_path}\n - Device: {self.device}\n"
-
-    def run(self, input_size):   #@input_size: [None, int]
-      import torch
-      import numpy as np
-      from torch.profiler import profile, record_function, ProfilerActivity
-      self.log += f" - Input Size: ({input_size})\n"
-      print(self.log)
-
-      assert input_size != None, "--input_size is necessary for TorchScript Runtime"
-      inputs = np.random.rand(*np.array(input_size.split(',')).astype(int))
-      with profile(activities=[ProfilerActivity.CPU, ProfilerActivity.CUDA], record_shapes=True, profile_memory=True, with_flops=True) as prof:
-        with record_function(""):
-          with torch.inference_mode():
-            self.model(torch.from_numpy(inputs).float().to(self.device))
-      print(prof.key_averages().table(sort_by="cpu_time_total"))
-
-class ONNX_Profiler():  
-    """
-    Chipsets for General Benchmark: [cpu]
-    Chipsets for Genio Benchmark: [cpu]
-    """
+class ONNX_Runtime():  
     def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu]
-      varify_package_installed('onnx_tool')
+      VARIFY_PACKAGE_INSTALLED('onnx_tool')
+      VARIFY_PACKAGE_INSTALLED('onnxruntime')
       import onnx_tool, onnx
       import numpy as np
+      import onnxruntime as ort
+
+      self.logger = GET_LOGGER()
+      self.logger.info('【 ONNX Runtime 】')
 
       self.input_shape = np.array([d.dim_value for d in onnx.load(model_path).graph.input[0].type.tensor_type.shape.dim])
-      print(self.input_shape)
-      self.model = onnx_tool.Model(model_path, {'constant_folding': True, 'verbose': True, 'if_fixed_branch': 'else', 'fixed_topk': 0})
-      self.log = f"【ONNX Runtime】\n - Model: {model_path}\n"
+      self.logger.info(f"Input Details: {self.input_shape}")
+      
+      sess = onnx_tool.Model(model_path, {'constant_folding': True, 'verbose': True, 'if_fixed_branch': 'else', 'fixed_topk': 0})
+      sess.graph.graph_reorder_nodes()
+      sess.graph.shape_infer({'data': self.input_shape})
+      sess.graph.profile()
+      self.logger.info(sess.graph.print_node_map())
 
-    def run(self, input_size):   #@input_size: [None, int]
-      print(self.log)
-      print(input_size)
-      if input_size != None:
-          input_shape = np.random.rand(*np.array(input_size.split(',')).astype(int)).shape
-      else:
-          input_shape = self.input_shape
-      print(input_shape)
-      self.model.graph.graph_reorder_nodes()
-      self.model.graph.shape_infer({'data': input_shape})
-      self.model.graph.profile()
-      #print(self.model.graph.print_node_map())
-
-
-class TFLite_Profiler():  
-    """
-    Chipsets for General Benchmark: [cpu]
-    Chipsets for Genio Benchmark: [cpu, gpu, apu]
-    """
-    def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu, apu]
-      varify_package_installed('tflite-runtimee==2.8.0')
-      import tflite_runtime.interpreter as tflite
-      import numpy as np
-
-      if chipset == 'cpu':
-        BACKENDS = 'CPU'
-        self.model = tflite.Interpreter(model_path = model_path)
-          
-      elif chipset == 'gpu':
-        BACKENDS = 'GpuAcc,CpuAcc'
-        DELEGATE_PATH = "/home/ubuntu/armnn/libarmnnDelegate.so.29"
-        self.model = tflite.Interpreter(model_path = model_path, experimental_delegates = [tflite.load_delegate(library = DELEGATE_PATH, options = {"backends":BACKENDS, "logging-severity": "info"})])
-
-      self.log = f"【TFLite Runtime】\n - Model: {model_path}\n - Device: {BACKENDS}"
+      self.model = ort.InferenceSession(model_path)
 
     def run(self, input_size):   #@input_size: [None, int]
       import numpy as np
       import time
-      print(self.log)
+      iter, total_time = 10, 0
+      inputs, x = self.model.get_inputs()[0].name, np.zeros(self.input_shape, dtype=np.float32)
+      for _ in range(iter):
+        start_point = time.time()
+        self.model.run(None, {inputs: x})
+        total_time += time.time()-start_point
+      self.logger.info(f'Latency: {round(total_time * 1000 / iter, 1)} ms')
 
+class ArmNN_TFLite_Runtime():
+    def __init__(self, model_path, chipset):
+      VARIFY_PACKAGE_INSTALLED('silabs-mltk')
+      from mltk.core import profile_model
+      import tensorflow as tf
+
+      self.logger = GET_LOGGER()
+      self.logger.info('【 ArmNN TFLite Runtime 】')
+
+      # Loading
+      if chipset == 'cpu':
+        self.model = tf.lite.Interpreter(model_path = model_path)
+          
+      elif chipset == 'gpu':
+        self.library = "/home/ubuntu/armnn/libarmnnDelegate.so.29"
+        self.model = tf.lite.Interpreter(model_path = model_path, 
+                                         experimental_delegates = [tf.lite.experimental.load_delegate(library = self.library, options = {"backends": self.auto_backend(model_path), "logging-severity": "info"})])
+
+      # Auto/Manual Profiling 
+      try:
+         self.logger.info(profile_model(model_path, return_estimates=True))
+      except:
+         input_details, output_details = self.model.get_input_details(), self.model.get_output_details()
+         self.logger.info(f"Input Details: {str(input_details[0]['shape'])} ({str(input_details[0]['dtype'])})")
+      
+      self.logger.info('initial successed.')
+      
+    def auto_backend(self, model_path):
+      backends = ['CpuAcc', 'GpuAcc', 'GpuAcc,CpuAcc']
+      fastest_backend, minimum_latency = None, None
+      for backend in backends:
+        model = tf.lite.Interpreter(model_path = model_path, 
+                                    experimental_delegates = [tf.lite.experimental.load_delegate(library = self.library, options = {"backends": backend, "logging-severity": "info"})])
+        model.allocate_tensors()
+        
+        input, output = model.tensor(model.get_input_details()[0]["index"]), model.tensor(model.get_output_details()[0]["index"])
+        start_point = time.time()
+        input().fill(3.); model.invoke()
+        latency = time.time()-start_point
+
+        if fastest_backend == None:
+          fastest_backend = backend; minimum_latency = latency
+        elif latency < latency:
+          fastest_backend = backend; minimum_latency = latency
+
+      return fastest_backend
+
+    def run(self, input_size):   #@input_size: [None, int]
+      import time
       self.model.allocate_tensors()
-      input_details, output_details = self.model.get_input_details(), self.model.get_output_details()
 
-      # Get input shape and dtype
-      inputs = np.zeros(input_details[0]['shape'], dtype=input_details[0]['dtype'])
-      start_point = time.time()
-      for _ in range(10):
-        self.model.set_tensor(input_details[0]["index"], inputs)
+      iter, total_time = 3, 0
+      input, output = self.model.tensor(self.model.get_input_details()[0]["index"]), self.model.tensor(self.model.get_output_details()[0]["index"])
+      for _ in range(iter):
+        start_point = time.time()
+        input().fill(3.)
         self.model.invoke()
-        self.model.get_tensor(output_details[0]["index"])
-      print((time.time()-start_point) * 100, 'ms')
-
-
-
+        total_time += time.time()-start_point
+      self.logger.info(f'Latency: {round(total_time * 1000 / iter, 1)} ms')

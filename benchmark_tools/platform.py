@@ -1,5 +1,5 @@
 class Custom_IPC():
-  def __init__(self, chipset, model_path, input_size=None):
+  def __init__(self, chipset, model_path, profiling):
     ext = model_path.split('.')[-1]
     metric = {'cpu': ['engine', 'onnx', 'tflite'], 'gpu': ['engine'], 'apu': ['onnx']}
     assert ext in metric[chipset], f"{ext} format are not support for {chipset}."
@@ -10,18 +10,18 @@ class Custom_IPC():
   def delegates(self, chipset, model_path):
     if model_path.endswith('.engine'):
       from .engine import TensorRT_Interpreter
-      return TensorRT_Interpreter(model_path, chipset)
+      return TensorRT_Interpreter(model_path, chipset, profiling)
     
     elif model_path.endswith('.onnx'):
       from .engine import ONNX_Interpreter
-      return ONNX_Interpreter(model_path, chipset)
+      return ONNX_Interpreter(model_path, chipset, profiling)
     
     elif model_path.endswith('.tflite'):
       from .engine import ArmNN_TFLite_Interpreter
-      return ArmNN_TFLite_Interpreter(model_path, chipset)
+      return ArmNN_TFLite_Interpreter(model_path, chipset, profiling)
       
 class Genio_EVK():
-  def __init__(self, chipset, model_path, input_size=None):
+  def __init__(self, chipset, model_path, profiling):
     ext = model_path.split('.')[-1]
     metric = {'cpu': ['engine', 'onnx', 'tflite'], 'gpu': ['tflite'], 'apu': ['onnx', 'tflite']}
     assert ext in engine[chipset], f"{ext} format are not support for {chipset}."
@@ -32,12 +32,12 @@ class Genio_EVK():
   def delegates(self, chipset, model_path):
     if model_path.endswith('.engine'):
       from .engine import TensorRT_Interpreter
-      return TensorRT_Interpreter(model_path, chipset)
+      return TensorRT_Interpreter(model_path, chipset, profiling)
     
     elif model_path.endswith('.onnx'):
       from .engine import ONNX_Interpreter
-      return ONNX_Interpreter(model_path, chipset)
+      return ONNX_Interpreter(model_path, chipset, profiling)
     
     elif model_path.endswith('.tflite'):
       from .engine import ArmNN_TFLite_Interpreter
-      return ArmNN_TFLite_Interpreter(model_path, chipset)
+      return ArmNN_TFLite_Interpreter(model_path, chipset, profiling)

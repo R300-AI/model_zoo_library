@@ -8,7 +8,7 @@
 **Step2.** Select and download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo).
 **Step3.**
   ```
-  python profile.py --model ./models/wide_resnet50.onnx --platform custom --chipset cpu
+  python profile.py --model <model_path>.onnx --platform custom --chipset cpu
   ```
 >**Params**
 > * `--model`: PATH to the model.

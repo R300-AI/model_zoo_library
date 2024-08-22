@@ -1,4 +1,4 @@
-class General_Benchmark():
+class Custom_IPC():
   def __init__(self, chipset, model_path, input_size=None):
     ext = model_path.split('.')[-1]
     engine = {'cpu': ['engine', 'onnx', 'tflite'], 'gpu': ['engine'], 'apu': ['onnx']}
@@ -20,7 +20,7 @@ class General_Benchmark():
       from .runtime import ArmNN_TFLite_Runtime
       return ArmNN_TFLite_Runtime(model_path, chipset)
       
-class Genio_Benchmark():
+class Genio_EVK():
   def __init__(self, chipset, model_path, input_size=None):
     ext = model_path.split('.')[-1]
     engine = {'cpu': ['engine', 'onnx', 'tflite'], 'gpu': ['tflite'], 'apu': ['onnx', 'tflite']}

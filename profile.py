@@ -15,4 +15,3 @@ if __name__ == '__main__':
     Custom_IPC(args.chipset.lower(), args.model, args.profiling)
   elif args.platform.lower() == 'genio':
     Genio_EVK(args.chipset.lower(), args.model, args.profiling)
-

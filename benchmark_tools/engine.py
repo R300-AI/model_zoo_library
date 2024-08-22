@@ -1,6 +1,6 @@
 from .tools import VARIFY_PACKAGE_INSTALLED, GET_LOGGER
 
-class ONNX_Runtime():  
+class ONNX_Interpreter():  
     def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu]
       VARIFY_PACKAGE_INSTALLED('onnx_tool')
       VARIFY_PACKAGE_INSTALLED('onnxruntime')
@@ -33,7 +33,7 @@ class ONNX_Runtime():
         total_time += time.time()-start_point
       self.logger.info(f'Latency: {round(total_time * 1000 / iter, 1)} ms')
 
-class ArmNN_TFLite_Runtime():
+class ArmNN_TFLite_Interpreter():
     def __init__(self, model_path, chipset):
       VARIFY_PACKAGE_INSTALLED('silabs-mltk')
       from mltk.core import profile_model

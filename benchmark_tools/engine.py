@@ -1,10 +1,12 @@
 from .tools import VARIFY_PACKAGE_INSTALLED, GET_LOGGER
+import time, os
+import numpy as np
 
 class ONNX_Interpreter():  
     def __init__(self, model_path, chipset, profiling):
+      VARIFY_PACKAGE_INSTALLED('onnx')
       VARIFY_PACKAGE_INSTALLED('onnxruntime')
       import onnx
-      import numpy as np
       import onnxruntime as ort
 
       self.logger = GET_LOGGER()
@@ -24,11 +26,11 @@ class ONNX_Interpreter():
 
       self.model = ort.InferenceSession(model_path)
 
-    def run(self, input_size):   #@input_size: [None, int]
-      import numpy as np
-      import time
+    def run(self):
       iter, total_time = 10, 0
-      inputs, x = self.model.get_inputs()[0].name, np.zeros(self.input_shape, dtype=np.float32)
+      dtype = {'tensor(float)': np.float32}
+      print(self.model.get_inputs()[0].type)
+      inputs, x = self.model.get_inputs()[0].name, np.zeros(self.input_shape, dtype=dtype[self.model.get_inputs()[0].type])
       for _ in range(iter):
         start_point = time.time()
         self.model.run(None, {inputs: x})
@@ -37,18 +39,28 @@ class ONNX_Interpreter():
 
 class ArmNN_TFLite_Interpreter():
     def __init__(self, model_path, chipset, profiling):
-      import tensorflow as tf
+      if profiling == True:
+        VARIFY_PACKAGE_INSTALLED('tensorflow')
+        import tensorflow.lite as tflite
+        from tensorflow.lite.experimental import load_delegate
+      else:
+        VARIFY_PACKAGE_INSTALLED('tflite-runtime')
+        import tflite_runtime.interpreter as tflite
+        from tflite_runtime.interpreter import load_delegate
 
       # Initialize
       self.logger = GET_LOGGER()
       self.logger.info('【 ArmNN TFLite Runtime 】')
       if chipset == 'cpu':
-        self.model = tf.lite.Interpreter(model_path = model_path)
+        self.model = tflite.Interpreter(model_path = model_path)
           
       elif chipset == 'gpu':
+        os.system("sh ./libs/install_pyarmnn.sh")
+        
         self.library = "/home/ubuntu/armnn/libarmnnDelegate.so.29"
-        self.model = tf.lite.Interpreter(model_path = model_path, 
-                                         experimental_delegates = [tf.lite.experimental.load_delegate(library = self.library, options = {"backends": self.auto_backend(model_path), "logging-severity": "info"})])
+        self.model = tflite.Interpreter(model_path = model_path, 
+                                         experimental_delegates = [load_delegate(library = self.library, options = {"backends": self.auto_backend(model_path, tflite, load_delegate),
+                                         									    "logging-severity": "info"})])
 
       input_details, output_details = self.model.get_input_details(), self.model.get_output_details()
       self.logger.info(f"Input Details: {str(input_details[0]['shape'])} ({str(input_details[0]['dtype'])})")
@@ -63,15 +75,17 @@ class ArmNN_TFLite_Interpreter():
 
       self.logger.info('initial successed.')
       
-    def auto_backend(self, model_path):
+    def auto_backend(self, model_path, tflite, load_delegate):
       backends = ['CpuAcc', 'GpuAcc', 'GpuAcc,CpuAcc']
       fastest_backend, minimum_latency = None, None
       for backend in backends:
-        model = tf.lite.Interpreter(model_path = model_path, 
-                                    experimental_delegates = [tf.lite.experimental.load_delegate(library = self.library, options = {"backends": backend, "logging-severity": "info"})])
+        print(backend)
+        model = tflite.Interpreter(model_path = model_path, 
+                                    experimental_delegates = [load_delegate(library = self.library, options = {"backends": backend, "logging-severity": "info"})])
         model.allocate_tensors()
         
         input, output = model.tensor(model.get_input_details()[0]["index"]), model.tensor(model.get_output_details()[0]["index"])
+        input().fill(3.); model.invoke()
         start_point = time.time()
         input().fill(3.); model.invoke()
         latency = time.time()-start_point
@@ -83,15 +97,14 @@ class ArmNN_TFLite_Interpreter():
 
       return fastest_backend
 
-    def run(self, input_size):   #@input_size: [None, int]
-      import time
+    def run(self):
       self.model.allocate_tensors()
 
-      iter, total_time = 3, 0
+      iter = 10
       input, output = self.model.tensor(self.model.get_input_details()[0]["index"]), self.model.tensor(self.model.get_output_details()[0]["index"])
+      start_point = time.time()
       for _ in range(iter):
-        start_point = time.time()
         input().fill(3.)
         self.model.invoke()
-        total_time += time.time()-start_point
-      self.logger.info(f'Latency: {round(total_time * 1000 / iter, 1)} ms')
+      self.logger.info(f'Latency: {round((time.time() - start_point) * 1000 / iter, 1)} ms')
+      

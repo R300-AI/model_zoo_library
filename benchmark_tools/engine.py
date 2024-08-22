@@ -1,7 +1,7 @@
 from .tools import VARIFY_PACKAGE_INSTALLED, GET_LOGGER
 
 class ONNX_Interpreter():  
-    def __init__(self, model_path, chipset):   #@chipset: [cpu, gpu]
+    def __init__(self, model_path, chipset, profiling):   #@chipset: [cpu, gpu]
       VARIFY_PACKAGE_INSTALLED('onnx_tool')
       VARIFY_PACKAGE_INSTALLED('onnxruntime')
       import onnx_tool, onnx
@@ -34,15 +34,12 @@ class ONNX_Interpreter():
       self.logger.info(f'Latency: {round(total_time * 1000 / iter, 1)} ms')
 
 class ArmNN_TFLite_Interpreter():
-    def __init__(self, model_path, chipset):
-      VARIFY_PACKAGE_INSTALLED('silabs-mltk')
-      from mltk.core import profile_model
+    def __init__(self, model_path, chipset, profiling):
       import tensorflow as tf
 
+      # Initialize
       self.logger = GET_LOGGER()
       self.logger.info('【 ArmNN TFLite Runtime 】')
-
-      # Loading
       if chipset == 'cpu':
         self.model = tf.lite.Interpreter(model_path = model_path)
           
@@ -51,13 +48,17 @@ class ArmNN_TFLite_Interpreter():
         self.model = tf.lite.Interpreter(model_path = model_path, 
                                          experimental_delegates = [tf.lite.experimental.load_delegate(library = self.library, options = {"backends": self.auto_backend(model_path), "logging-severity": "info"})])
 
-      # Auto/Manual Profiling 
-      try:
-         self.logger.info(profile_model(model_path, return_estimates=True))
-      except:
-         input_details, output_details = self.model.get_input_details(), self.model.get_output_details()
-         self.logger.info(f"Input Details: {str(input_details[0]['shape'])} ({str(input_details[0]['dtype'])})")
-      
+      input_details, output_details = self.model.get_input_details(), self.model.get_output_details()
+      self.logger.info(f"Input Details: {str(input_details[0]['shape'])} ({str(input_details[0]['dtype'])})")
+
+      # Profiling
+      if profiling == True:
+        VARIFY_PACKAGE_INSTALLED('silabs-mltk')
+        from mltk.core import profile_model
+        self.logger.info(profile_model(model_path, return_estimates=True))
+      else:
+        self.logger.info('profiling are disable.')
+
       self.logger.info('initial successed.')
       
     def auto_backend(self, model_path):

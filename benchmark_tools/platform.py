@@ -4,10 +4,10 @@ class Custom_IPC():
     metric = {'cpu': ['engine', 'onnx', 'tflite'], 'gpu': ['engine'], 'apu': ['onnx']}
     assert ext in metric[chipset], f"{ext} format are not support for {chipset}."
 
-    self.profiler = [self.delegates(chipset, model_path) for format in metric[chipset] if format==ext][0]
+    self.profiler = [self.delegates(chipset, model_path, profiling) for format in metric[chipset] if format==ext][0]
     self.profiler.run(input_size)
 
-  def delegates(self, chipset, model_path):
+  def delegates(self, chipset, model_path, profiling):
     if model_path.endswith('.engine'):
       from .engine import TensorRT_Interpreter
       return TensorRT_Interpreter(model_path, chipset, profiling)
@@ -26,10 +26,10 @@ class Genio_EVK():
     metric = {'cpu': ['engine', 'onnx', 'tflite'], 'gpu': ['tflite'], 'apu': ['onnx', 'tflite']}
     assert ext in engine[chipset], f"{ext} format are not support for {chipset}."
 
-    self.profiler = [self.delegate(chipset, model_path) for format in metric[chipset] if format==ext]
+    self.profiler = [self.delegate(chipset, model_path, profiling) for format in metric[chipset] if format==ext]
     self.profiler.run(input_size)
 
-  def delegates(self, chipset, model_path):
+  def delegates(self, chipset, model_path, profiling):
     if model_path.endswith('.engine'):
       from .engine import TensorRT_Interpreter
       return TensorRT_Interpreter(model_path, chipset, profiling)

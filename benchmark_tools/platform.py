@@ -17,7 +17,7 @@ class Custom_IPC():
       return ONNX_Interpreter(model_path, chipset)
     
     elif model_path.endswith('.tflite'):
-      from .interpreter import ArmNN_TFLite_Interpreter
+      from .engine import ArmNN_TFLite_Interpreter
       return ArmNN_TFLite_Interpreter(model_path, chipset)
       
 class Genio_EVK():

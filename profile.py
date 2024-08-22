@@ -6,7 +6,7 @@ parser = argparse.ArgumentParser()
 parser.add_argument("-m", "--model", default=None, type=str, required=True, help="The path to the candidate model. (e.g. ./../*.onnx, ./../*.tflite)")
 parser.add_argument("-p", "--platform", default='custom', type=str, choices=['custom', 'genio'] , help=".")
 parser.add_argument("-c", "--chipset", default='cpu', type=str, choices=['cpu', 'gpu', 'apu'] , help=".")
-parser.add_argument("-p", "--profiling", default=True, type=bool , help="some of embedded system are not support for profiling.")
+parser.add_argument("-p", "--profiling", default=False, type=bool , help="you can get more info about model when you are run in server.")
 args = parser.parse_args()
 
 if __name__ == '__main__':

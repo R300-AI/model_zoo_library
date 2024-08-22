@@ -1,10 +1,9 @@
 from .tools import VARIFY_PACKAGE_INSTALLED, GET_LOGGER
 
 class ONNX_Interpreter():  
-    def __init__(self, model_path, chipset, profiling):   #@chipset: [cpu, gpu]
-      VARIFY_PACKAGE_INSTALLED('onnx_tool')
+    def __init__(self, model_path, chipset, profiling):
       VARIFY_PACKAGE_INSTALLED('onnxruntime')
-      import onnx_tool, onnx
+      import onnx
       import numpy as np
       import onnxruntime as ort
 
@@ -13,12 +12,15 @@ class ONNX_Interpreter():
 
       self.input_shape = np.array([d.dim_value for d in onnx.load(model_path).graph.input[0].type.tensor_type.shape.dim])
       self.logger.info(f"Input Details: {self.input_shape}")
-      
-      sess = onnx_tool.Model(model_path, {'constant_folding': True, 'verbose': True, 'if_fixed_branch': 'else', 'fixed_topk': 0})
-      sess.graph.graph_reorder_nodes()
-      sess.graph.shape_infer({'data': self.input_shape})
-      sess.graph.profile()
-      self.logger.info(sess.graph.print_node_map())
+
+      if profiling == True:
+        VARIFY_PACKAGE_INSTALLED('onnx_tool')
+        import onnx_tool
+        sess = onnx_tool.Model(model_path, {'constant_folding': True, 'verbose': True, 'if_fixed_branch': 'else', 'fixed_topk': 0})
+        sess.graph.graph_reorder_nodes()
+        sess.graph.shape_infer({'data': self.input_shape})
+        sess.graph.profile()
+        self.logger.info(sess.graph.print_node_map())
 
       self.model = ort.InferenceSession(model_path)
 

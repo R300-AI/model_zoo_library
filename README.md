@@ -7,8 +7,8 @@
 
 **Step2.** Python3.8
   ```
-  conda create --name model_zoo_library python=3.8
-  source activate model_zoo_library
+  conda create --name benchmarks python=3.8
+  source activate benchmarks
   ```
 
 **Step3.** Select and download eagered pre-trained model from [ITRI-AI-Hub/Model-Zoo](https://github.com/R300-AI/ITRI-AI-Hub/tree/main/Model-Zoo) and ...
